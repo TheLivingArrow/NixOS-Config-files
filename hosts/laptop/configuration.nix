@@ -82,6 +82,7 @@ fonts.packages = with pkgs; [
     wireplumber
     fzf
     git
+    gh
     efibootmgr
    ];
 
