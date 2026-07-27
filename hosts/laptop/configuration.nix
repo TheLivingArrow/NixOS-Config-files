@@ -48,14 +48,15 @@
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
-	lutris
-	steam
-	hyprshot
-	quickshell
-	rofi
-	tree
-	vesktop
-  inputs.caelestia-shell.packages.x86_64-linux.with-cli
+	    lutris
+	    steam
+	    hyprshot
+    	quickshell
+    	rofi
+    	tree
+    	vesktop
+      inputs.caelestia-shell.packages.x86_64-linux.with-cli
+      krita
    ];
  };
 
