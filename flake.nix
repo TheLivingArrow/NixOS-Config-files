@@ -31,13 +31,13 @@
     nixosConfigurations.desktop = nixpkg.lib.nixosSystem {
       speacialArgs = {inherit inputs;};
       modules = [
-  #      ./hosts/desktop/configuration.nix
+        ./hosts/desktop/configuration.nix
       ]
     };
     nixosConfigurations.usb = nixpkg.lib.nixosSystem {
       speacialArgs = {inherit inputs;};
       modules = [
-  #     ./hosts/usb/configuration.nix
+        ./hosts/usb/configuration.nix
       ]
     }
   };
