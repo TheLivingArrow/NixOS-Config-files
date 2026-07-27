@@ -32,17 +32,17 @@
         inputs.home-manager.nixosModules.default
       ];
     };
-    nixosConfigurations.desktop = nixpkg.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       speacialArgs = {inherit inputs;};
       modules = [
         ./hosts/desktop/configuration.nix
-      ]
+      ];
     };
-    nixosConfigurations.usb = nixpkg.lib.nixosSystem {
+    nixosConfigurations.usb = nixpkgs.lib.nixosSystem {
       speacialArgs = {inherit inputs;};
       modules = [
         ./hosts/usb/configuration.nix
-      ]
-    }
+      ];
+    };
   };
 }
