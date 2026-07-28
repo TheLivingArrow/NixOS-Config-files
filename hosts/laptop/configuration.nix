@@ -83,6 +83,7 @@ fonts.packages = with pkgs; [
     kitty
     btop
     tmux
+    flatpak
     wireplumber
     fzf
     git
@@ -94,6 +95,7 @@ fonts.packages = with pkgs; [
     enable = true;
     extraCompatPackages = [pkgs.proton-ge-bin];
   };
+  services.flatpak.enable = true;
   services.xserver.enable = true;
   programs.zsh.enable = true;
   programs.firefox.enable = true;
