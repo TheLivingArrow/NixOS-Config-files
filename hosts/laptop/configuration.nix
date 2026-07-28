@@ -54,6 +54,7 @@
     	quickshell
     	rofi
     	tree
+      gamemode
     	vesktop
       inputs.caelestia-shell.packages.x86_64-linux.with-cli
       krita
