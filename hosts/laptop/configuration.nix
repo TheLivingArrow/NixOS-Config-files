@@ -8,13 +8,18 @@
 { config, lib, pkgs,inputs , ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = 
+  let
+     modules = ../..; # root of the nix config
+  in [ 
      ./hardware-configuration.nix 
-    ];
+     modules/nixos/hyprland.nix
+     modules/nixos/niri.nix
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
-  # Use the systemd-boot EFI boot loader.
+
   boot.loader = {
        systemd-boot = {
           enable = true;
@@ -63,10 +68,6 @@
    ];
  };
 
- #home.username = "daniel-nix";
- #home.homeDirectory = "/home/daniel-nix";
-
-  # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
 fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -80,6 +81,7 @@ fonts.packages = with pkgs; [
     zsh
     dunst
     hyprland
+    niri
     kitty
     btop
     tmux
@@ -90,7 +92,6 @@ fonts.packages = with pkgs; [
    ];
 
   # List services that you want to enable:
-  #programs.home-manager.enable = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = [pkgs.proton-ge-bin]
@@ -106,7 +107,8 @@ fonts.packages = with pkgs; [
       enable = true;
       theme = "breeze";
   };
-services.desktopManager.plasma6.enable = true;
+  programs.niri.enable = true;
+  services.desktopManager.plasma6.enable = true;
   # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
