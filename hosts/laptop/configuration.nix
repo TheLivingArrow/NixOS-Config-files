@@ -91,7 +91,10 @@ fonts.packages = with pkgs; [
 
   # List services that you want to enable:
   #programs.home-manager.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [pkgs.proton-ge-bin]
+  }
   services.xserver.enable = true;
   programs.zsh.enable = true;
   programs.firefox.enable = true;
