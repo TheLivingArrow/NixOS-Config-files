@@ -13,8 +13,6 @@
      modules = ../..; # root of the nix config
   in [ 
      ./hardware-configuration.nix 
-     modules/nixos/hyprland.nix
-     modules/nixos/niri.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -94,8 +92,8 @@ fonts.packages = with pkgs; [
   # List services that you want to enable:
   programs.steam = {
     enable = true;
-    extraCompatPackages = [pkgs.proton-ge-bin]
-  }
+    extraCompatPackages = [pkgs.proton-ge-bin];
+  };
   services.xserver.enable = true;
   programs.zsh.enable = true;
   programs.firefox.enable = true;
