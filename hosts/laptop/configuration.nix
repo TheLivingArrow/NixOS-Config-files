@@ -63,7 +63,6 @@
       krita
       inkscape
       lmms-full
-      protonup-qt
    ];
  };
 
@@ -93,7 +92,7 @@ fonts.packages = with pkgs; [
   # List services that you want to enable:
   programs.steam = {
     enable = true;
-    #extraCompatPackages = [pkgs.proton-ge-bin];
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
   services.flatpak.enable = true;
   services.xserver.enable = true;
