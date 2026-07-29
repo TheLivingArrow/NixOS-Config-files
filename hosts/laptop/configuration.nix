@@ -63,6 +63,7 @@
       krita
       inkscape
       lmms-full
+      protonup-qt
    ];
  };
 
@@ -79,7 +80,6 @@ fonts.packages = with pkgs; [
     zsh
     dunst
     hyprland
-    niri
     kitty
     btop
     tmux
@@ -93,7 +93,7 @@ fonts.packages = with pkgs; [
   # List services that you want to enable:
   programs.steam = {
     enable = true;
-    extraCompatPackages = [pkgs.proton-ge-bin];
+    #extraCompatPackages = [pkgs.proton-ge-bin];
   };
   services.flatpak.enable = true;
   services.xserver.enable = true;
@@ -107,9 +107,7 @@ fonts.packages = with pkgs; [
       enable = true;
       theme = "breeze";
   };
-  programs.niri.enable = true;
   services.desktopManager.plasma6.enable = true;
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
