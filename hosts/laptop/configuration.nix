@@ -10,9 +10,10 @@
 {
   imports = 
   let
-     modules = ../..; # root of the nix config
+     module = ../../modules; # root of the nix config
   in [ 
-     ./hardware-configuration.nix 
+     ./hardware-configuration.nix
+     module/nixos/zsh.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -76,7 +77,6 @@ fonts.packages = with pkgs; [
     firefox
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vim
-    zsh
     dunst
     hyprland
     kitty
@@ -95,8 +95,6 @@ fonts.packages = with pkgs; [
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
   services.flatpak.enable = true;
-  services.xserver.enable = true;
-  programs.zsh.enable = true;
   programs.firefox.enable = true;
   programs.hyprland = {
     enable = true;
@@ -105,6 +103,7 @@ fonts.packages = with pkgs; [
   services.displayManager.sddm = {
       enable = true;
       theme = "breeze";
+      wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
 
