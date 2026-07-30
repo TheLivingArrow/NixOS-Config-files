@@ -5,11 +5,12 @@
 # Execute all before using:
 # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 # sudo nix-channel --update
-{ config, lib, pkgs,inputs , ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [ 
      ./hardware-configuration.nix
+#     ./home.nix
      ../../modules/nixos/zsh.nix
   ];
 
