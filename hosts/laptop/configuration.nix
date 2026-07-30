@@ -8,12 +8,9 @@
 { config, lib, pkgs,inputs , ... }:
 
 {
-  imports = 
-  let
-     module = ../../modules; # root of the nix config
-  in [ 
+  imports = [ 
      ./hardware-configuration.nix
-     module/nixos/zsh.nix
+     ../../modules/nixos/zsh.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
