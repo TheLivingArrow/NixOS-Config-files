@@ -24,7 +24,6 @@
 
   in
   {
-    
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -33,13 +32,13 @@
       ];
     };
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      speacialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs;};
       modules = [
         ./hosts/desktop/configuration.nix
       ];
     };
     nixosConfigurations.usb = nixpkgs.lib.nixosSystem {
-      speacialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs;};
       modules = [
         ./hosts/usb/configuration.nix
       ];
