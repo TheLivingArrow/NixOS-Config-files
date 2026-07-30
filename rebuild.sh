@@ -10,7 +10,7 @@ while getopts ":u:" option; do
   esac
 done
 cd ~/.nixconf
-if nixos-rebuild build --flake .#laptop; then
+if nixos-rebuild build --no-build-output --flake .#laptop; then
   git commit -a
   git push -u origin main
   if $upgrade; then
