@@ -78,8 +78,11 @@ fonts.packages = with pkgs; [
     dunst
     hyprland
     kitty
+    zip
+    unzip
     btop
     tmux
+    vlc
     flatpak
     wireplumber
     fzf
