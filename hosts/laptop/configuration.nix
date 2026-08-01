@@ -58,7 +58,7 @@
     	tree
       gamemode
     	vesktop
-      inputs.caelestia-shell.packages.${system}.with-cli
+      inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
       inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
       krita
       inkscape
