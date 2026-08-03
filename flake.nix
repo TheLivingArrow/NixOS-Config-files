@@ -25,7 +25,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: 
   let
-    SYSTEM = pkgs.stdenv.hostPlatform.system;
+    SYSTEM = "${pkgs.stdenv.hostPlatform.system}";
   in
   {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
