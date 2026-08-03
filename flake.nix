@@ -28,27 +28,28 @@
     SYSTEM = "x86_64-linux";
   in
   {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-        inherit SYSTEM;
+    nixosConfigurations = { 
+      laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit SYSTEM;
+          };
+          modules = [
+            ./hosts/laptop/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
       };
-      modules = [
-        ./hosts/laptop/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
+      desktop = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/desktop/configuration.nix
+          ];
+      };
+      usb = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/usb/configuration.nix
+          ];
+      };
     };
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/desktop/configuration.nix
-      ];
-    };
-    nixosConfigurations.usb = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/usb/configuration.nix
-      ];
-    };
-  };
 }
