@@ -4,4 +4,4 @@
   environment.systemPackages = with inputs; [
     tagstudio.packages.${SYSTEM}.tagstudio
   ];   
-};
+}
