@@ -11,7 +11,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../modules/nixos/zsh.nix
-    #../../modules/nixos/tagstudio.nix
+    ../../modules/nixos/tagstudio.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

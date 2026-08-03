@@ -17,10 +17,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  #  tagstudio = {
-  #    url = "github:TagStudioDev/TagStudio";
-  #    inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
-  #  };
+    tagstudio = {
+      url = "github:TagStudioDev/TagStudio";
+      inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
