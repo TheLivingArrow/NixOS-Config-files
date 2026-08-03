@@ -49,12 +49,25 @@
  users.users.daniel-nix = {
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-   packages = with pkgs; [
+   packages = [
+      vesktop
+      inputs.caelestia-shell.packages.${SYSTEM}.with-cli
+      inputs.tagstudio.packages.${SYSTEM}.tagstudio
+      krita
+      inkscape
+      lmms-full 
+      hyprshot 
+      quickshell
+      rofi
+      tree
    ];
  };
 
  home-manager = {
-    extraSpecialArgs = { inherit inputs;};
+    extraSpecialArgs = { 
+      inherit inputs;
+      inherit SYSTEM;
+    };
     users = {
       daniel-nix = import ./home.nix;
     };
