@@ -5,7 +5,7 @@
 # Execute all before using:
 # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 # sudo nix-channel --update
-{ config, lib, pkgs, inputs, SYSTEM, ...}:
+{ config, lib, pkgs, inputs, SYSTEM, USER, ...}:
 
 {
   imports = [ 
@@ -46,7 +46,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
  users.defaultUserShell = pkgs.zsh;
- users.users.daniel-nix = {
+ users.users.${USER.name} = {
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
@@ -66,10 +66,7 @@
  home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { 
-      inherit inputs;
-      inherit SYSTEM;
-    };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       daniel-nix = import ./home.nix;
     };

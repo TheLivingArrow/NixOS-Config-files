@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, SYSTEM, ... }:
+{ config, pkgs, inputs, SYSTEM, USER, ... }:
 
 {
   imports = [
@@ -6,8 +6,8 @@
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "daniel-nix";
-  home.homeDirectory = "/home/daniel-nix";
+  home.username = ${USER.name};
+  home.homeDirectory = "${USER.home}";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
