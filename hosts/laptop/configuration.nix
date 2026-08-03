@@ -68,7 +68,6 @@
   environment.systemPackages = with pkgs; [
     neovim    
     fastfetch
-    firefox
     inputs.zen-browser.packages.${SYSTEM}.default
     rofi
     vim
@@ -88,12 +87,7 @@
    ];
 
   # List services that you want to enable:
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
-  };
   services.flatpak.enable = true;
-  programs.firefox.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
