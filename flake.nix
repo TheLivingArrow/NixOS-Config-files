@@ -23,7 +23,7 @@
     };
   };
 
-  SYSTEM = {"x86_64-linux";};
+  SYSTEM = "x86_64-linux";
   USER = {
     name = "daniel-nix";
     home = /home/daniel-nix;
