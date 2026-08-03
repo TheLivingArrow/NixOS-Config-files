@@ -8,14 +8,10 @@
 { config, lib, pkgs, inputs, SYSTEM, ...}:
 
 {
-  imports =
-  let
-    MODULES = "../../modules";  
-  in
-  [ 
+  imports = [ 
     ./hardware-configuration.nix
-    ${MODULES}/nixos/zsh.nix
-    #${MODULES}/nixos/tagstudio.nix
+    ../../modules/nixos/zsh.nix
+    #../../modules/nixos/tagstudio.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
