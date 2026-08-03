@@ -49,8 +49,8 @@
  users.users.daniel-nix = {
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-   packages = [
-      discord#vesktop
+   packages = with pkgs; [
+      discord #vesktop
       inputs.caelestia-shell.packages.${SYSTEM}.with-cli
       inputs.tagstudio.packages.${SYSTEM}.tagstudio
       krita
