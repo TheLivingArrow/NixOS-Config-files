@@ -1,6 +1,6 @@
-{ pkgs, ...}:
+{ pkgs, USER, ...}:
 {
-  home.packages =  [
+  users.users.${USER.name}.packages =  [
     steam
     lutris
   ];

@@ -23,17 +23,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
-  let
-    SYSTEM = "x86_64-linux";
-  in
-  {
+  SYSTEM = {"x86_64-linux"};
+  USER = {
+    name = "daniel-nix";
+    home = /home/daniel-nix;
+  };
+
+  outputs = { self, nixpkgs, SYSTEM, USER, ... }@inputs: {
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit SYSTEM;
-          };
+          specialArgs = {inherit inputs;};
           modules = [
             ./hosts/laptop/configuration.nix
             inputs.home-manager.nixosModules.default
