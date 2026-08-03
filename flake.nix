@@ -23,13 +23,17 @@
     };
   };
 
-  SYSTEM = "x86_64-linux";
-  USER = {
-    name = "daniel-nix";
-    home = /home/daniel-nix;
-  };
+ 
 
-  outputs = { self, nixpkgs, SYSTEM, USER, ... }@inputs: {
+  outputs = 
+  let
+    SYSTEM = "x86_64-linux";
+    USER = {
+      name = "daniel-nix";
+      home = /home/daniel-nix;
+    };
+  in { self, nixpkgs, SYSTEM, USER, ... }@inputs: {
+
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
