@@ -62,6 +62,7 @@ fonts.packages = with pkgs; [
     fastfetch
     firefox
     inputs.zen-browser.packages.${SYSTEM}.default
+    rofi
     vim
     dunst
     hyprland
