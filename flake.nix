@@ -17,21 +17,21 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tagstudio = {
-      url = "github:TagStudioDev/TagStudio";
-      inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
-    };
+  #  tagstudio = {
+  #    url = "github:TagStudioDev/TagStudio";
+  #    inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
+  #  };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
   let
-    system = "x86_64-linux";
+    SYSTEM = pkgs.stdenv.hostPlatform.system;
   in
   {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
-        inherit system;
+        inherit SYSTEM;
       };
       modules = [
         ./hosts/laptop/configuration.nix

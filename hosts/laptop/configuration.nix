@@ -5,7 +5,7 @@
 # Execute all before using:
 # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 # sudo nix-channel --update
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, SYSTEM, ...}:
 
 {
   imports = [ 
@@ -60,8 +60,7 @@ fonts.packages = with pkgs; [
     neovim    
     fastfetch
     firefox
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
+    inputs.zen-browser.packages.${SYSTEM}.default
     vim
     dunst
     hyprland
