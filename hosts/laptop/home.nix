@@ -68,9 +68,9 @@
   #  /etc/profiles/per-user/daniel-nix/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+     SHELL = "zsh";
      EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
