@@ -10,7 +10,6 @@
 {
   imports = [ 
      ./hardware-configuration.nix
-#     ./home.nix
      ../../modules/nixos/zsh.nix
   ];
 
@@ -50,19 +49,6 @@
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
-	    lutris
-	    steam
-	    hyprshot
-    	quickshell
-    	rofi
-    	tree
-      gamemode
-    	vesktop
-      inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
-      inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
-      krita
-      inkscape
-      lmms-full
    ];
  };
 
@@ -75,6 +61,7 @@ fonts.packages = with pkgs; [
     fastfetch
     firefox
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
     vim
     dunst
     hyprland
