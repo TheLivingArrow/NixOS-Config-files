@@ -59,6 +59,9 @@
       lmms-full 
       hyprshot 
       quickshell
+      gamemode 
+      gamescope
+      mangohud
       rofi
       tree
       lutris
@@ -66,14 +69,7 @@
    ];
  };
 
-  programs.lutris = {
-    enable = true;
-    extraPackages = with pkgs; [
-      gamemode 
-      gamescope
-      mangohud
-    ];
-  };
+  programs.lutris.enable = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
