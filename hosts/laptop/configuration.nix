@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/zsh.nix
     ../../modules/nixos/tagstudio.nix
+    ../../modules/nixos/gaming.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -66,7 +67,11 @@
  home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { 
+      inherit inputs; 
+      inherit USER;
+      inherit SYSTEM;
+    };
     users = {
       daniel-nix = import ./home.nix;
     };
