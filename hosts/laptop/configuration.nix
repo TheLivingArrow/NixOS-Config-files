@@ -66,6 +66,7 @@
       lutris
       steam
       blender
+      vimiv
    ];
  };
 
