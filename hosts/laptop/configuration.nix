@@ -66,7 +66,7 @@
       lutris
       steam
       blender
-      nsxiv
+      feh
    ];
  };
 
