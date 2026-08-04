@@ -67,8 +67,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-:wa
-
     users = {
       daniel-nix = import ./home.nix;
     };
