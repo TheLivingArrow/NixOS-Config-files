@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     ../../modules/nixos/zsh.nix
     ../../modules/nixos/tagstudio.nix
-    ../../modules/nixos/gaming.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
