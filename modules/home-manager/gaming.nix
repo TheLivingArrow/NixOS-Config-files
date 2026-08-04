@@ -1,6 +1,6 @@
-{ pkgs, USER, ...}:
+{ pkgs, ...}:
 {
-  users.users.${USER.name}.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     steam
     lutris
   ];
