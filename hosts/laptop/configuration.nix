@@ -58,9 +58,6 @@
       lmms-full 
       hyprshot 
       quickshell
-      gamemode 
-      gamescope
-      mangohud
       rofi
       tree
       lutris
@@ -73,7 +70,7 @@
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
- /* home-manager = {
+  home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { 
@@ -85,7 +82,7 @@
       daniel-nix = import ./home.nix;
     };
   };
-*/
+
 # You can use https://search.nixos.org/ to find more packages (and options).
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
