@@ -25,18 +25,20 @@
 
  
 
-  outputs = 
+  outputs = { self, nixpkgs, ... }@inputs: 
   let
     SYSTEM = "x86_64-linux";
     USER = {
       name = "daniel-nix";
       home = /home/daniel-nix;
-    };
-  in { self, nixpkgs, SYSTEM, USER, ... }@inputs: {
-
+    }; in{
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs; 
+            inherit SYSTEM;
+            inherit USER;
+          };
           modules = [
             ./hosts/laptop/configuration.nix
             inputs.home-manager.nixosModules.default
