@@ -65,6 +65,7 @@
       tree
       lutris
       steam
+      blender
    ];
  };
 
