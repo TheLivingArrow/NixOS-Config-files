@@ -102,6 +102,7 @@
     kitty
     zip
     unzip
+    file
     btop
     tmux
     vlc
