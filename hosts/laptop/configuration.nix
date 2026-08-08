@@ -18,9 +18,11 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.loader = {
-       systemd-boot = {
+       grub = {
           enable = true;
-	        configurationLimit = 5;
+          useOSProber = true;
+          device = "nodev";
+          efiSupport = true;
        };
        efi = {
          canTouchEfiVariables = true;
@@ -67,6 +69,7 @@
       steam
       blender
       nomacs
+      os-prober
    ];
  };
 
