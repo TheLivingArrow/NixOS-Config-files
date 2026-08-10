@@ -102,6 +102,7 @@
     rofi
     vim
     cmake
+    gnumake
     dunst
     hyprland
     kitty
