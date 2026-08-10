@@ -101,6 +101,7 @@
     inputs.zen-browser.packages.${SYSTEM}.default
     rofi
     vim
+    cmake
     dunst
     hyprland
     kitty
