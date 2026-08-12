@@ -103,6 +103,7 @@
     vim
     cmake
     gnumake
+    gcc
     dunst
     hyprland
     kitty
