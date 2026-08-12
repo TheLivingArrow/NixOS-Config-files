@@ -121,6 +121,7 @@
    ];
 
   # List services that you want to enable:
+  services.xserver.enable = true;
   services.flatpak.enable = true;
   programs.hyprland = {
     enable = true;
