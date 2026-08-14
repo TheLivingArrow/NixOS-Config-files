@@ -109,6 +109,7 @@
     hyprland
     kitty
     zip
+    feh
     unzip
     file
     btop
