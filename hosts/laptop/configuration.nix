@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/zsh.nix
     ../../modules/nixos/tagstudio.nix
+    ../../modules/nixos/rustdesk-client.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
