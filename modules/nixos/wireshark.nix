@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     wireshark
-    wireshark-qt
   ];
   programs.wireshark = {
     enable = true;

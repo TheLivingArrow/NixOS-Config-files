@@ -13,6 +13,7 @@
     ../../modules/nixos/zsh.nix
     ../../modules/nixos/tagstudio.nix
     ../../modules/nixos/rustdesk-client.nix
+    ../../modules/nixos/wireshark.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -69,7 +70,6 @@
       lutris
       steam
       blender
-      nomacs
       os-prober
    ];
  };
