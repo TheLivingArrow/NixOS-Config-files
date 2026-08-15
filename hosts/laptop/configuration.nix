@@ -9,11 +9,15 @@
 
 {
   imports = [ 
+    # System
     ./hardware-configuration.nix
-    ../../modules/nixos/zsh.nix
-    ../../modules/nixos/tagstudio.nix
-    ../../modules/nixos/rustdesk-client.nix
-    ../../modules/nixos/wireshark.nix
+    ../../modules/nixos/system/sddm.nix
+
+    # Apps
+    ../../modules/nixos/apps/zsh.nix
+    ../../modules/nixos/apps/tagstudio.nix
+    ../../modules/nixos/apps/rustdesk-client.nix
+    ../../modules/nixos/apps/wireshark.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -128,11 +132,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-  };
-  services.displayManager.sddm = {
-      enable = true;
-      theme = "breeze";
-      wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
 
