@@ -1,7 +1,7 @@
 {pkgs, ...}:
 
 {
-  environment.systemPackages = with pkg; [
+  environment.systemPackages = with pkgs; [
   ];
   
   services.displayManager.sddm = {
