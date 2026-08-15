@@ -6,8 +6,8 @@
   
   services.displayManager.sddm = {
       enable = true;
-      theme = "chili-sddm-theme";
-      extraPackages = [ pkgs.sddm-chili-theme ];
+      theme = "breeze";
+      extraPackages = [];
       wayland.enable = true;
   };
 }
