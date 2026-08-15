@@ -12,8 +12,9 @@
     # System
     ./hardware-configuration.nix
     ../../modules/nixos/system/sddm.nix
-
+    
     # Apps
+    ../../modules/nixos/apps/file-manager.nix
     ../../modules/nixos/apps/zsh.nix
     ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/rustdesk-client.nix
