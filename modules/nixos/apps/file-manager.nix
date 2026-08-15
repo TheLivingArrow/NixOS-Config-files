@@ -6,6 +6,6 @@
       kdePackages.qtsvg
   ];
   environment.etc."xdg/menus/applications.menu".source = 
-    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+    "${pkgs.kdePackages.plasma-workspace}/menu/desktop/plasma-applications.menu";
 
 }
