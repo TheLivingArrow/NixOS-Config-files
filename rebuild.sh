@@ -18,7 +18,7 @@ git commit -a
 git push origin main
 if $upgrade; then
   nix flake upgrade
-  sudo nixos-rebuild switch --flake .#$config
+  sudo nixos-rebuild switch --upgrade --flake .#$config 
 else
   sudo nixos-rebuild switch --flake .#$config
 fi
