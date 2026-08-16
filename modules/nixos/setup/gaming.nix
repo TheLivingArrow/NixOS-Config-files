@@ -2,4 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
+    steam
+    lutris
+    mangohud
+    gamescope
+    gamemode
+  ];
 }

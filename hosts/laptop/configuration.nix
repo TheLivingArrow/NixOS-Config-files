@@ -11,10 +11,13 @@
   imports = [ 
     # System
     ./hardware-configuration.nix
+    ../../modules/nixos/system/grub.nix
     ../../modules/nixos/system/sddm.nix
+    ../..modules/nixos/system/hyprland.nix
+    ../../modules/nixos/system/kde-plasma.nix
     
     # Apps
-    ../../modules/nixos/apps/file-manager.nix
+    ../../modules/nixos/apps/dolphin.nix
     ../../modules/nixos/apps/zsh.nix
     ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/rustdesk-client.nix
@@ -24,79 +27,37 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader = {
-       grub = {
-          enable = true;
-          useOSProber = true;
-          device = "nodev";
-          efiSupport = true;
-       };
-       efi = {
-         canTouchEfiVariables = true;
-       };
-  };
+  
+  networking.hostName = "nixos-laptop07"; # Define your hostname.
 
- 
- networking.hostName = "nixos-laptop07"; # Define your hostname.
-
-
- networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Bucharest";
 
-   services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-     wireplumber.enable = true;
-   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
+ 
   # Define a user account. Don't forget to set a password with ‘passwd’.
- users.defaultUserShell = pkgs.zsh;
- users.users.${USER.name} = {
+  users.defaultUserShell = pkgs.zsh;
+  users.users.${USER.name} = {
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
       discord vesktop
-      inputs.caelestia-shell.packages.${SYSTEM}.with-cli
-      inputs.tagstudio.packages.${SYSTEM}.tagstudio
       krita
       inkscape
       lmms-full 
-      hyprshot 
       quickshell
       gamemode 
       gamescope
       mangohud
-      rofi
       tree
       lutris
       steam
       blender
       os-prober
    ];
- };
-
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
- /* home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = { 
-      inherit inputs; 
-      inherit USER;
-      inherit SYSTEM;
-    };
-    users = {
-      daniel-nix = import ./home.nix;
-    };
-  };
-*/
-# You can use https://search.nixos.org/ to find more packages (and options).
+  
+  # You can use https://search.nixos.org/ to find more packages (and options).
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -105,13 +66,10 @@
     neovim    
     fastfetch
     inputs.zen-browser.packages.${SYSTEM}.default
-    rofi
     vim
     cmake
     gnumake
     gcc
-    dunst
-    hyprland
     kitty
     zip
     feh
@@ -125,16 +83,23 @@
     fzf
     git
     efibootmgr
-   ];
+    os-prober
+  ];
+
+  # List programs and their settings:
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
 
   # List services that you want to enable:
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
   services.xserver.enable = true;
   services.flatpak.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.desktopManager.plasma6.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
