@@ -13,7 +13,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/system/grub.nix
     ../../modules/nixos/system/sddm.nix
-    ../..modules/nixos/system/hyprland.nix
+    ../../modules/nixos/system/hyprland.nix
     ../../modules/nixos/system/kde-plasma.nix
     
     # Apps
