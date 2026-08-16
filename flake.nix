@@ -36,7 +36,6 @@
           };
           modules = [
             ./hosts/laptop/configuration.nix
-            inputs.home-manager.nixosModules.default
           ];
       };
       desktop = nixpkgs.lib.nixosSystem {
