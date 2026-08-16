@@ -26,7 +26,8 @@
     USER = {
       name = "daniel-nix";
       home = /home/daniel-nix;
-    }; in{
+    }; 
+  in {
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -38,6 +39,8 @@
             ./hosts/laptop/configuration.nix
           ];
       };
+      /* Unused for now
+
       desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [
@@ -49,7 +52,7 @@
           modules = [
             ./hosts/usb/configuration.nix
           ];
-      };
+      }; */
     };
-};
+  };
 }
