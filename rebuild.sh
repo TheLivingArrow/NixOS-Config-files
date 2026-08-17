@@ -14,7 +14,8 @@ while getopts ":u:" option; do
 done
 
 cd $confRoot
-git commit -a
+git add .
+git commit 
 git push origin main
 if $upgrade; then
   nix flake upgrade

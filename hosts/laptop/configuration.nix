@@ -42,10 +42,8 @@
    isNormalUser = true;
    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
-      discord vesktop
+      vesktop
       krita
-      inkscape
-      lmms-full 
       quickshell
       gamemode 
       gamescope
@@ -53,7 +51,6 @@
       tree
       lutris
       steam
-      blender
       os-prober
    ];
   };
