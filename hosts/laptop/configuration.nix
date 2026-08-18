@@ -23,6 +23,9 @@
     ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/rustdesk-client.nix
     ../../modules/nixos/apps/wireshark.nix
+
+    # Other
+    ../../modules/nixos/setup/fhs.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
