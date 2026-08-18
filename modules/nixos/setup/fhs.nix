@@ -1,6 +1,7 @@
 {config, pkgs, lib}:
 
 {
+  environment.systemPackages = with pkgs; [
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";
