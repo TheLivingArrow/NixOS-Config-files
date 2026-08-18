@@ -64,6 +64,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    wine-wayland
     neovim    
     fastfetch
     inputs.zen-browser.packages.${SYSTEM}.default
