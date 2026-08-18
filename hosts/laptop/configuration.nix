@@ -88,6 +88,8 @@
   ];
 
   # List programs and their settings:
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
