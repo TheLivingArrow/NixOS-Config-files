@@ -79,6 +79,7 @@
     unzip
     file
     btop
+    xclicker
     tmux
     vlc
     flatpak
