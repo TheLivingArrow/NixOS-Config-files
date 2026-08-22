@@ -18,7 +18,7 @@
     ../../modules/nixos/system/kde-plasma.nix
     
     # Apps
-    ../../modules/nixos/apps/neovim.nix
+#    ../../modules/nixos/apps/neovim.nix
     ../../modules/nixos/apps/dolphin.nix
     ../../modules/nixos/apps/zsh.nix
     ../../modules/nixos/apps/tagstudio.nix
