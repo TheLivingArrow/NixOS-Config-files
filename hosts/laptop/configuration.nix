@@ -18,6 +18,7 @@
     ../../modules/nixos/system/kde-plasma.nix
     
     # Apps
+    ../../modules/nixos/apps/neovim.nix
     ../../modules/nixos/apps/dolphin.nix
     ../../modules/nixos/apps/zsh.nix
     ../../modules/nixos/apps/tagstudio.nix
@@ -41,9 +42,9 @@
  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.zsh;
-  users.users.${USER.name} = {
+  users.users.daniel-nix = {
    isNormalUser = true;
-   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+   extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
       vesktop
       krita
@@ -54,7 +55,6 @@
       tree
       lutris
       steam
-      os-prober
    ];
   };
   
@@ -79,7 +79,7 @@
     unzip
     file
     btop
-    xclicker
+    wl-clicker
     tmux
     vlc
     flatpak
