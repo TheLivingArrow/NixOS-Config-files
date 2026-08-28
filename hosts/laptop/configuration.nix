@@ -76,6 +76,7 @@
     kitty
     zip
     feh
+    usbutils
     unzip
     file
     btop
