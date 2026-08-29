@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = with inputs; [
-    tagstudio.packages.${SYSTEM}.tagstudio
+    # tagstudio.packages.${SYSTEM}.tagstudio
   ];   
 }
