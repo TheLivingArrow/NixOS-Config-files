@@ -9,6 +9,7 @@
       hyprshot 
       quickshell
       kitty
+      wf-recorder
   ]; 
 
   programs.hyprland = {
