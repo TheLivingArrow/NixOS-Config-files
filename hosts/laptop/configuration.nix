@@ -81,7 +81,7 @@
     kitty
     neovim    
     os-prober
-    python
+    python3
     tmux
     unzip
     vim
