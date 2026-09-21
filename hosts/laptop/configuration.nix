@@ -45,17 +45,17 @@
   users.defaultUserShell = pkgs.zsh;
   users.users.daniel-nix = {
    isNormalUser = true;
-   extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
+   extraGroups = [ "wheel" "input" ]; 
    packages = with pkgs; [
-      vesktop
-      krita
-      quickshell
       gamemode 
       gamescope
-      mangohud
-      tree
+      krita
       lutris
+      mangohud
+      quickshell
       steam
+      tree
+      vesktop
    ];
   };
   
@@ -65,30 +65,31 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wine-wayland
-    icu
-    neovim    
-    fastfetch
-    inputs.zen-browser.packages.${SYSTEM}.default
-    vim
-    cmake
-    gnumake
-    gcc
-    kitty
-    zip
-    feh
-    unzip
-    file
     btop
-    wl-clicker
-    tmux
-    vlc
-    flatpak
-    wireplumber
-    fzf
-    git
+    cmake
     efibootmgr
+    fastfetch
+    feh
+    file
+    flatpak
+    fzf
+    gcc
+    git
+    gnumake
+    icu
+    inputs.zen-browser.packages.${SYSTEM}.default
+    kitty
+    neovim    
     os-prober
+    python
+    tmux
+    unzip
+    vim
+    vlc
+    wine-wayland
+    wireplumber
+    wl-clicker
+    zip
   ];
 
   # List programs and their settings:
