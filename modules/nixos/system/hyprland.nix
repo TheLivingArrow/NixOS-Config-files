@@ -10,6 +10,7 @@
       quickshell
       kitty
       wf-recorder
+      brightnessctl
   ]; 
 
   programs.hyprland = {
