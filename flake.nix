@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf = {
-      url = "github:notashelf/nvf"
-      inputs.nixpkgs.follows = "nixpkgs"
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
@@ -23,7 +23,7 @@
 
  
 
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs = { self, nixpkgs, nvf, ... }@inputs: 
   let
     SYSTEM = "x86_64-linux";
     USER = {
@@ -40,6 +40,7 @@
           };
           modules = [
             ./hosts/laptop/configuration.nix
+            nvf.nixosModules.default
           ];
       };
       /* Unused for now

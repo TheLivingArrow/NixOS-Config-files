@@ -6,7 +6,7 @@
   programs.appimage.binfmt = true;
 
   # Essential programs
-  enviorment.systemPkgs = with pkgs; [
+  environment.systemPackages = with pkgs; [
     btop
     cmake
     efibootmgr
@@ -18,7 +18,7 @@
     gzip
     icu
     python3
-    tar
+    gnutar
     tmux
     unzip
     vim

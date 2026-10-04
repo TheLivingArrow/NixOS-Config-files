@@ -1,6 +1,6 @@
 {pkgs, ...}:
 {
-  enviorment.systemPackages = [ pkgs.wireplumber ];
+  environment.systemPackages = [ pkgs.wireplumber ];
   services.pipewire = {
     enable = true;
     pulse.enable = true;

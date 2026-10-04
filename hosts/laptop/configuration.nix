@@ -11,13 +11,13 @@
   imports = [ 
     # System
     ./hardware-configuration.nix
-    ../..modules/nixos/system/base.nix
+    ../../modules/nixos/system/base.nix
     ../../modules/nixos/system/nix.nix
     ../../modules/nixos/system/grub.nix
     ../../modules/nixos/system/sddm.nix
-    ../../modules/nixs/system/wifi.nix
+    ../../modules/nixos/system/wifi.nix
     ../../modules/nixos/system/bluetooth.nix
-    ../../modules/nixos/system/audio.nix.nix
+    ../../modules/nixos/system/audio.nix
     ../../modules/nixos/system/hyprland.nix
     ../../modules/nixos/system/kde-plasma.nix
     
