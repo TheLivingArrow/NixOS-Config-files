@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nvf = {
+      url = "github:notashelf/nvf"
+      inputs.nixpkgs.follows = "nixpkgs"
+    };
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -11,51 +11,38 @@
   imports = [ 
     # System
     ./hardware-configuration.nix
+    ../..modules/nixos/system/base.nix
     ../../modules/nixos/system/nix.nix
     ../../modules/nixos/system/grub.nix
     ../../modules/nixos/system/sddm.nix
+    ../../modules/nixs/system/wifi.nix
     ../../modules/nixos/system/bluetooth.nix
+    ../../modules/nixos/system/audio.nix.nix
     ../../modules/nixos/system/hyprland.nix
     ../../modules/nixos/system/kde-plasma.nix
     
     # Apps
-#    ../../modules/nixos/apps/neovim.nix
     ../../modules/nixos/apps/dolphin.nix
-    ../../modules/nixos/apps/zsh.nix
-    ../../modules/nixos/apps/tagstudio.nix
+    ../../modules/nixos/apps/nvf.nix
     ../../modules/nixos/apps/rustdesk-client.nix
+    ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/wireshark.nix
+    ../../modules/nixos/apps/zsh.nix
 
     # Other
-    ../../modules/nixos/setup/fhs.nix
+    #../../modules/nixos/setup/fhs.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
-
-  
   networking.hostName = "nixos-laptop07"; # Define your hostname.
-
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Bucharest";
 
- 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.zsh;
   users.users.daniel-nix = {
    isNormalUser = true;
    extraGroups = [ "wheel" "input" ]; 
    packages = with pkgs; [
-      gamemode 
-      gamescope
-      krita
-      lutris
-      mangohud
-      quickshell
-      steam
-      tree
-      vesktop
    ];
   };
   
@@ -65,47 +52,36 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    btop
-    cmake
-    efibootmgr
     fastfetch
     feh
-    file
     flatpak
-    fzf
-    gcc
-    git
-    gnumake
-    icu
+    gamemode 
+    gamescope
     inputs.zen-browser.packages.${SYSTEM}.default
     kitty
-    neovim    
+    krita
+    lutris
+    mangohud
     os-prober
     python3
+    quickshell
+    steam
     tmux
-    unzip
-    vim
+    tree
+    vesktop
     vlc
     wine-wayland
-    wireplumber
     wl-clicker
-    zip
   ];
 
   # List programs and their settings:
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
 
   # List services that you want to enable:
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
+  
   services.xserver.enable = true;
   services.flatpak.enable = true;
 
