@@ -14,11 +14,15 @@ while getopts ":u:" option; do
 done
 
 cd $confRoot
+if ! nixos-rebuild dry-build --sudo --impure --flake ".#$config" 1> /dev/null; then # checks if build is valid
+    exit 1;
+fi
 if $upgrade; then
-  nix flake upgrade
+    nix flake upgrade
 fi
 git add .
 git commit 
 git push origin main
-sudo nixos-rebuild switch --flake .#$config
+nixos-rebuild switch --sudo --flake .#$config
 cd -
+
