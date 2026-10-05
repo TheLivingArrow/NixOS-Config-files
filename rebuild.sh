@@ -2,7 +2,7 @@
 confRoot=~/.nixconf # Directory where you keep you configuration. Example: /etc/nixos/
 config=laptop
 
-upgrade=false
+upgrade=false # Dont edit this
 while getopts ":u:" option; do
   case $option in
     u)
@@ -14,13 +14,11 @@ while getopts ":u:" option; do
 done
 
 cd $confRoot
+if $upgrade; then
+  nix flake upgrade
+fi
 git add .
 git commit 
 git push origin main
-if $upgrade; then
-  nix flake upgrade
-  sudo nixos-rebuild switch --upgrade --flake .#$config 
-else
-  sudo nixos-rebuild switch --flake .#$config
-fi
+sudo nixos-rebuild switch --flake .#$config
 cd -
