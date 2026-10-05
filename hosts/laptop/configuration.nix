@@ -23,7 +23,6 @@
     
     # Apps
     ../../modules/nixos/apps/dolphin.nix
-    ../../modules/nixos/apps/nvf.nix
     ../../modules/nixos/apps/rustdesk-client.nix
     ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/wireshark.nix
