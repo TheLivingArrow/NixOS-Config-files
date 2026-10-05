@@ -7,10 +7,17 @@
       enableManpages = true;
       settings = {
           vim = {
+              globals = {
+                  mapleader = " ";
+              };
+              options = {
+                  tabstop = 4;
+                  shiftwidth = 0; 
+              };
               theme = {
                   enable = true;
-                  name = "gruvbox";
-                  style = "dark";
+                  name = "catppuccin";
+                  style = "latte";
               };
               viAlias = false;
               vimAlias = true;
@@ -21,6 +28,7 @@
                   nix.enable = true;
                   python.enable = true;
               };
+              mini.tabline.enable = true;
               autocomplete.blink-cmp.enable = true;
               statusline.lualine.enable = true;
               filetree.neo-tree.enable = true;
