@@ -15,6 +15,7 @@ if [[ ($* == -uc ) ]]; then
     build=0
     upgrade=1
 fi
+
 cd $path
 if ! nixos-rebuild dry-run --flake .#$config; then
   exit
