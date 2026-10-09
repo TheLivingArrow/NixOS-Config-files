@@ -2,6 +2,7 @@
 config=laptop
 path=~/.nixconf/
 
+#Arguments 
 #build = false means that it will only commit and push changes, usefull when developing
 upgrade=0; build=1
 echo $*
@@ -16,17 +17,20 @@ if [[ ($* == -uc ) ]]; then
     upgrade=1
 fi
 
+# Check config validity
 cd $path
 if ! nixos-rebuild dry-run --flake .#$config; then
   exit
 fi
+# Update flake lock 
 if [[ $upgrade -eq 1 ]]; then
     nix flake update    
 fi
+# Git
 git add .
 git commit 
-git push origin main
 if [[ build -eq 1 ]]; then 
+    git push origin main
     nixos-rebuild switch --sudo --flake .#$config
 fi 
 cd -
