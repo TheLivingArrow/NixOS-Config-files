@@ -2,13 +2,15 @@
 confRoot=~/.nixconf # Directory where you keep you configuration. Example: /etc/nixos/
 config=laptop
 
-upgrade=false # Dont edit this
-while getopts ":u:" option; do
+#nobuild = true means that it will only commit and push changes, usefull when developing
+while getopts ":u:c:" option; do
   case $option in
     u)
       upgrade=true
       ;;
-    *)
+    c) nobuild=true
+      ;;
+    *) upgrade=false; nobuild=false
       ;;
   esac
 done
@@ -23,6 +25,8 @@ fi
 git add .
 git commit 
 git push origin main
-nixos-rebuild switch --sudo --flake .#$config
+if ! $nobuild; then 
+    nixos-rebuild switch --sudo --flake .#$config
+fi
 cd -
 
