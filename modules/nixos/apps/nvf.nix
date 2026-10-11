@@ -35,9 +35,9 @@
         };
         keymaps = [
           {
-              key = "<leader>t";
+              key = "\\";
               mode = ["n"];
-              action = ":Neotree";
+              action = ":lua vim.diagnostic.open_float()";
               silent = true;
           }
         ];
@@ -46,9 +46,22 @@
         lsp.enable = true;
         treesitter.enable = true;
         languages = {
-            clang.enable = true;
-            nix.enable = true;
+            bash.enable   = true;
+            clang.enable  = true;
+            json.enable   = true;
+            lua.enable    = true;
+            nix.enable    = true;
             python.enable = true;
+            toml.enable   = true;
+        };
+        diagnostics.config = {
+            virtual_text = {
+                format = lib.generators.mkLuaInline ''
+                    function(diagnostic)
+                    return string.format("%s (%s)", diagnostic.message, diagnostic.source)
+                    end
+                '';
+            };
         };
         mini.tabline.enable = true;
         autocomplete.blink-cmp.enable = true;

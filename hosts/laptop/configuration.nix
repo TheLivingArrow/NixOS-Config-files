@@ -41,8 +41,6 @@
   users.users.daniel-nix = {
    isNormalUser = true;
    extraGroups = [ "wheel" "input" ]; 
-   packages = with pkgs; [
-   ];
   };
   
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -68,6 +66,7 @@
     tmux
     tree
     vesktop
+    discord
     vlc
     wine-wayland
     wl-clicker
