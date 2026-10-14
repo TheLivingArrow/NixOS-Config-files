@@ -24,7 +24,6 @@
     # Apps
     ../../modules/nixos/apps/zsh.nix
     ../../modules/nixos/apps/dolphin.nix
-    ../../modules/nixos/apps/librewolf.nix
     ../../modules/nixos/apps/rustdesk-client.nix
     ../../modules/nixos/apps/tagstudio.nix
     ../../modules/nixos/apps/wireshark.nix
