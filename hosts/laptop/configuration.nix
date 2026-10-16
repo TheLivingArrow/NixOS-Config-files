@@ -23,6 +23,7 @@
     
     # Apps
     ../../modules/nixos/apps/zsh.nix
+    ../../modules/nixos/apps/librewolf.nix
     ../../modules/nixos/apps/dolphin.nix
     ../../modules/nixos/apps/rustdesk-client.nix
     ../../modules/nixos/apps/tagstudio.nix
@@ -54,7 +55,7 @@
     flatpak
     gamemode 
     gamescope
-    inputs.zen-browser.packages.${SYSTEM}.default
+    # inputs.zen-browser.packages.${SYSTEM}.default
     kitty
     krita
     lutris
