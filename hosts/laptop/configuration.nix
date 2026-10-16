@@ -70,6 +70,7 @@
     vlc
     wine-wayland
     wl-clicker
+    fsel
   ];
 
   # List programs and their settings:
