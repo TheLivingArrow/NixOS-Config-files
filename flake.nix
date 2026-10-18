@@ -11,13 +11,13 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tagstudio = {
       url = "github:TagStudioDev/TagStudio";
       inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
+    };
+    otter-launcher = {
+        url = "github:kuokuo123/otter-launcher";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -47,6 +47,7 @@
           modules = [
             ./hosts/laptop/configuration.nix
             nvf.nixosModules.default
+            ./modules/nixos/apps/otter-launcher.nix
           ];
       };
       /* Unused for now
