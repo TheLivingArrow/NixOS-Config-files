@@ -55,7 +55,6 @@
     flatpak
     gamemode 
     gamescope
-    # inputs.zen-browser.packages.${SYSTEM}.default
     kitty
     krita
     lutris

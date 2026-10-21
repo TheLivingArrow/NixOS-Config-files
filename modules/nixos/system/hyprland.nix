@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-      inputs.caelestia-shell.packages.${SYSTEM}.with-cli
+      # inputs.caelestia-shell.packages.${SYSTEM}.with-cli
       dunst
       hyprland
       rofi
