@@ -31,11 +31,13 @@
       home = /home/daniel-nix;
     }; 
   in {
-    packages.${SYSTEM}.default = (
-        nvf.lib.neovimConfiguration {
-            modules = [./modules/nixos/apps/nvf.nix];
-            pkgs = nixpkgs.legacyPackages.${SYSTEM};
-    }).neovim;
+    packages.${SYSTEM} = {
+        default = (
+            nvf.lib.neovimConfiguration {
+                modules = [./modules/nixos/apps/nvf.nix];
+                pkgs = nixpkgs.legacyPackages.${SYSTEM};
+        }).neovim;
+    };
 
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
