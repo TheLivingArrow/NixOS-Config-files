@@ -34,11 +34,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1792507819,
-        "narHash": "sha256-7ZdS2iVqBoXrVqDNIQYwhiZEpr+bemPfVqtYfWZQPUg=",
+        "lastModified": 1792590044,
+        "narHash": "sha256-kpv/BEp2ieY8AZDbHDNTZzRAis6qgnvq0YU4Y7o2+uk=",
         "owner": "caelestia-dots",
         "repo": "shell",
-        "rev": "6c70d5cb0cbf31413d300699540c858ad28c1539",
+        "rev": "588562ead8a5d21bf33cc54ccc12adc4fae2424b",
         "type": "github"
       },
       "original": {
@@ -162,11 +162,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792210252,
-        "narHash": "sha256-Mh0PUaIv4nFY+8wAGonaEh8iBzwsmdNlwjVHmFg1Biw=",
+        "lastModified": 1792502884,
+        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "09063bd1f2b36fd9fd793c36dfade7bd40a93dfc",
+        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
         "type": "github"
       },
       "original": {
@@ -188,22 +188,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1792503287,
-        "narHash": "sha256-iiBP12kOyIweo8CQPi1/4Py5LVZX6vDVBKMQ01AT37w=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7816d39daadb7412b886bf5a9a3b607561a7bd2c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-26.05-small",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -239,11 +223,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1792250322,
-        "narHash": "sha256-UfBTQMR/vZ3XQJRX5XwIP+nMcB5qLQo0pBR1jvavmqg=",
+        "lastModified": 1792550473,
+        "narHash": "sha256-7A7DNGBTcT4vj/2w5Dyiz17rZJvgM0hLdJZHYKES+/c=",
         "owner": "kuokuo123",
         "repo": "otter-launcher",
-        "rev": "c0a7d96ab69d0682f3b67d1ca28935d754111c99",
+        "rev": "08a0eafea9f9a11cbe393329356edc64b7056735",
         "type": "github"
       },
       "original": {
@@ -277,7 +261,6 @@
       "inputs": {
         "caelestia-shell": "caelestia-shell",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable",
         "nvf": "nvf",
         "otter-launcher": "otter-launcher",
         "tagstudio": "tagstudio"

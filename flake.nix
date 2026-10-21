@@ -2,7 +2,6 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05-small";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf = {
       url = "github:notashelf/nvf";
@@ -24,7 +23,7 @@
 
  
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nvf, ... }@inputs: 
+  outputs = { self, nixpkgs, nvf, ... }@inputs: 
   let
     SYSTEM = "x86_64-linux";
     USER = {
@@ -35,7 +34,7 @@
     packages.${SYSTEM}.default = (
         nvf.lib.neovimConfiguration {
             modules = [./modules/nixos/apps/nvf.nix];
-            pkgs = nixpkgs-stable.legacyPackages.${SYSTEM};
+            pkgs = nixpkgs.legacyPackages.${SYSTEM};
     }).neovim;
 
     nixosConfigurations = { 
