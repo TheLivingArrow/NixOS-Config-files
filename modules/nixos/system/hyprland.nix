@@ -1,9 +1,9 @@
-{pkgs, inputs, ...}:
+{pkgs, inputs, SYSTEM, ...}:
 
 {
   environment.systemPackages = with pkgs; [
       hyprshutdown
-      hyprshell
+      inputs.caelestia-shell.packages.${SYSTEM}.with-cli
       dunst
       hyprland
       rofi
