@@ -1,8 +1,8 @@
-{pkgs, inputs, SYSTEM, ...}:
+{pkgs, inputs, ...}:
 
 {
   environment.systemPackages = with pkgs; [
-      # inputs.caelestia-shell.packages.${SYSTEM}.with-cli
+      hyprshell
       dunst
       hyprland
       rofi
@@ -12,6 +12,7 @@
       wf-recorder
       brightnessctl
       uwsm
+      dbus-broker
   ]; 
 
   programs.hyprland = {
