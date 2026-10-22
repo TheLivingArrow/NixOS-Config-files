@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
       hyprshutdown
-      inputs.caelestia-shell.packages.${SYSTEM}.with-cli
+      inputs.caelestia-shell.packages.${SYSTEM}.default
       dunst
       hyprland
       rofi
