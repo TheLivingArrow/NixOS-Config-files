@@ -50,6 +50,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    obsidian
     fastfetch
     feh
     flatpak
