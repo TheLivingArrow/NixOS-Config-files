@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:denful/import-tree";
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,14 +18,30 @@
       inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
     };
     otter-launcher = {
-        url = "github:kuokuo123/otter-launcher";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:kuokuo123/otter-launcher";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
  
 
-  outputs = { self, nixpkgs, nvf, ... }@inputs: 
+  outputs = { self, nixpkgs, nvf, flake-parts, ... }@inputs: 
+        flake-parts.lib.mkFlake { inherit inputs; } 
+            (inputs.import-tree ./modules);
+      /* Unused for now
+
+      desktop = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/desktop/configuration.nix
+          ];
+      };
+      usb = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/usb/configuration.nix
+          ];
+      }; 
   let
     SYSTEM = "x86_64-linux";
     USER = {
@@ -38,7 +56,8 @@
                 pkgs = nixpkgs.legacyPackages.${SYSTEM};
         }).neovim;
     };
-
+  };
+  };
     nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -51,21 +70,6 @@
             nvf.nixosModules.default
             ./modules/nixos/apps/otter-launcher.nix
           ];
-      };
-      /* Unused for now
-
-      desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/desktop/configuration.nix
-          ];
-      };
-      usb = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/usb/configuration.nix
-          ];
-      }; */
-    };
-  };
+      };*/
+  
 }
