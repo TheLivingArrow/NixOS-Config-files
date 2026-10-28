@@ -12,12 +12,11 @@
         modules = [
             ./_hardware-configuration.nix
             self.nixosModules.laptop-cfg
-            self.nixosModules.boot.grub
-            self.nixosModules.boot.sddm
+            self.nixosModules.grub
+            self.nixosModules.sddm
             self.nixosModules.hyprland
             self.nixosModules.base
             self.nixosModules.zsh
-            self.nixosModules.apps.dolphin
         ];
   };
 

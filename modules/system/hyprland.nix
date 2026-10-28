@@ -1,9 +1,11 @@
+{ inputs, self, ... }:
+
 {
-  flake.nixosModules.hyprland = {pkgs, inputs', ...}:
-    {
+  flake.nixosModules.hyprland = { pkgs, ... }:
+  {
       environment.systemPackages = with pkgs; [
           hyprshutdown
-          inputs'.caelestia-shell.packages.default
+          self.packages.caelestia-shell
           dunst
           hyprland
           rofi
@@ -18,5 +20,9 @@
         enable = true;
         xwayland.enable = true;
       };
-    };
+  };
+
+  perSystem = { inputs', ... }: {
+    packages.caelestia-shell = inputs'.caelestia-shell.packages.default;
+  };
 }
