@@ -5,103 +5,75 @@
 # Execute all before using:
 # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 # sudo nix-channel --update
-{ config, lib, pkgs, inputs, SYSTEM, USER, ...}:
+{ inputs, self, ... }:
 
 {
-  imports = [ 
-    # System
-    ./hardware-configuration.nix
-    ../../modules/nixos/system/base.nix
-    ../../modules/nixos/system/nix.nix
-    ../../modules/nixos/system/grub.nix
-    ../../modules/nixos/system/sddm.nix
-    ../../modules/nixos/system/wifi.nix
-    ../../modules/nixos/system/bluetooth.nix
-    ../../modules/nixos/system/audio.nix
-    ../../modules/nixos/system/hyprland.nix
-    ../../modules/nixos/system/kde-plasma.nix
+  flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
+        modules = [
+            self.nixosModules.laptop-cfg
+            self.nixosModules.grub
+            self
+            self.nixosModules.hyprland
+            self.nixosModules.nvf
+        ];
+  };
+
+  flake.nixosModules.laptop-cfg = { pkgs, ...}: {
+
+    networking.hostName = "nixos-laptop07"; # Define your hostname.
+
+    time.timeZone = "Europe/Bucharest";
+
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.defaultUserShell = pkgs.zsh;
+    users.users.daniel-nix = {
+     isNormalUser = true;
+     extraGroups = [ "wheel" "input" ]; 
+    };
     
-    # Apps
-    ../../modules/nixos/apps/zsh.nix
-    ../../modules/nixos/apps/librewolf.nix
-    ../../modules/nixos/apps/dolphin.nix
-    ../../modules/nixos/apps/rustdesk-client.nix
-    ../../modules/nixos/apps/tagstudio.nix
-    ../../modules/nixos/apps/wireshark.nix
+    # You can use https://search.nixos.org/ to find more packages (and options).
+    fonts.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+    ];
 
-    # Other
-    #../../modules/nixos/setup/fhs.nix
-  ];
+    environment.systemPackages = with pkgs; [
+      obsidian
+      fastfetch
+      feh
+      flatpak
+      gamemode 
+      gamescope
+      kitty
+      krita
+      lutris
+      mangohud
+      os-prober
+      python3
+      quickshell
+      steam
+      tmux
+      tree
+      vesktop
+      discord
+      vlc
+      wine-wayland
+      wl-clicker
+      fsel
+    ];
 
-  networking.hostName = "nixos-laptop07"; # Define your hostname.
+    # List programs and their settings:
+    programs.steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    };
 
-  time.timeZone = "Europe/Bucharest";
+    # List services that you want to enable:
+    
+    services.xserver.enable = true;
+    services.flatpak.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.defaultUserShell = pkgs.zsh;
-  users.users.daniel-nix = {
-   isNormalUser = true;
-   extraGroups = [ "wheel" "input" ]; 
+    system.stateVersion = "26.05"; 
   };
-  
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
-  environment.systemPackages = with pkgs; [
-    obsidian
-    fastfetch
-    feh
-    flatpak
-    gamemode 
-    gamescope
-    kitty
-    krita
-    lutris
-    mangohud
-    os-prober
-    python3
-    quickshell
-    steam
-    tmux
-    tree
-    vesktop
-    discord
-    vlc
-    wine-wayland
-    wl-clicker
-    fsel
-  ];
-
-  # List programs and their settings:
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
-  };
-
-  # List services that you want to enable:
-  
-  services.xserver.enable = true;
-  services.flatpak.enable = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "26.05"; # Did you read the comment?
 }
+
 
