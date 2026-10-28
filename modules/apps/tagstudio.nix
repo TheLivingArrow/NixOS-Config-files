@@ -1,7 +1,10 @@
-{nixpkgs, inputs, SYSTEM, ...}:
+{ inputs, ... }:
 
 {
-  environment.systemPackages = with inputs; [
-    # tagstudio.packages.${SYSTEM}.tagstudio
-  ];   
+    flake.nixosModules.apps.tagstudio = { inputs', ... }:
+    {
+      environment.systemPackages = [
+         inputs'.tagstudio.packages.tagstudio
+      ];   
+    };
 }

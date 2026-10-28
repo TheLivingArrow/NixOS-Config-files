@@ -10,6 +10,7 @@
 {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
         modules = [
+            ./_hardware-configuration.nix
             self.nixosModules.laptop-cfg
             self.nixosModules.grub
             self

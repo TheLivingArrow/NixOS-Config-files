@@ -24,7 +24,7 @@ if ! nixos-rebuild dry-run --flake .#$config; then
 fi
 # Update flake lock 
 if [[ $upgrade -eq 1 ]]; then
-    nix flake update    
+    nix flake update --commit-lock-file    
 fi
 # Git
 git add .

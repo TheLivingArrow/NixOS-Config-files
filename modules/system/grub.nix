@@ -1,5 +1,5 @@
 {
-    flake.nixosModules.grub = { pkgs, ...}: {
+    flake.nixosModules.boot.grub = { pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         os-prober
         efibootmgr

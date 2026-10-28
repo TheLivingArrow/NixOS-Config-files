@@ -1,7 +1,10 @@
-{pkgs, ...}:
+{ inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    rustdesk-flutter
-  ];
+    flake.nixosModules.apps.ruskdesk = { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        rustdesk-flutter
+      ];
+    };
 }

@@ -1,13 +1,13 @@
-{pkgs, ...}:
+{ inputs, ...}:
 
 {
-  environment.systemPackages = with pkgs; [
-  ];
-  
-  services.displayManager.sddm = {
-      enable = true;
-      theme = "breeze";
-      extraPackages = [];
-      wayland.enable = true;
-  };
+    flake.nixosModules.boot.sddm = {...}:
+    {
+      services.displayManager.sddm = {
+          enable = true;
+          theme = "breeze";
+          extraPackages = [];
+          wayland.enable = true;
+      };
+    };
 }

@@ -1,9 +1,9 @@
 {
-  flake.nixosModules.hyprland = {pkgs, inputs, ...}:
+  flake.nixosModules.hyprland = {pkgs, inputs', ...}:
     {
       environment.systemPackages = with pkgs; [
           hyprshutdown
-          inputs.caelestia-shell.packages.${SYSTEM}.default
+          inputs'.caelestia-shell.packages.default
           dunst
           hyprland
           rofi

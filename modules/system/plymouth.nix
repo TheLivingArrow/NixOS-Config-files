@@ -1,8 +1,11 @@
-{config, pkgs, ...}:
+{ inputs, ...}:
 
 {
-  environment.systemPackages = with pkgs [
-      plymouth
-  ];
-  boot.plymouth.theme = "bgrt";
-};
+    flake.nixosModules.boot.plymouth = { pkgs, ...}:
+    {
+      environment.systemPackages = with pkgs; [
+          plymouth
+      ];
+      boot.plymouth.theme = "bgrt";
+    };
+}
