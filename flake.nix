@@ -25,51 +25,7 @@
 
  
 
-  outputs = { self, nixpkgs, nvf, flake-parts, ... }@inputs: 
+  outputs = { self, flake-parts, ... }@inputs: 
         flake-parts.lib.mkFlake { inherit inputs; } 
             (inputs.import-tree ./modules);
-      /* Unused for now
-
-      desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/desktop/configuration.nix
-          ];
-      };
-      usb = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/usb/configuration.nix
-          ];
-      }; 
-  let
-    SYSTEM = "x86_64-linux";
-    USER = {
-      name = "daniel-nix";
-      home = /home/daniel-nix;
-    }; 
-  in {
-    packages.${SYSTEM} = {
-        default = (
-            nvf.lib.neovimConfiguration {
-                modules = [./modules/nixos/apps/nvf.nix];
-                pkgs = nixpkgs.legacyPackages.${SYSTEM};
-        }).neovim;
-    };
-  };
-  };
-    nixosConfigurations = { 
-      laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs; 
-            inherit SYSTEM;
-            inherit USER;
-          };
-          modules = [
-            ./hosts/laptop/configuration.nix
-            nvf.nixosModules.default
-            ./modules/nixos/apps/otter-launcher.nix
-          ];
-      };*/
-  
 }
