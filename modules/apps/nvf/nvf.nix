@@ -1,10 +1,11 @@
-{ self', inputs, ... }:
+{ moduleWithSystem, inputs, ... }:
 
 {
-    flake.nixosModules.nvf = {...}:
+    flake.nixosModules.nvf = moduleWithSystem ({ self', ... }:
     {
         environment.systemPackages = [ self'.packages.nvf ];
-    };
+    });
+
     perSystem = { pkgs, ...}:
     {
         packages.nvf = (inputs.nvf.lib.neovimConfiguration {
