@@ -5,7 +5,7 @@
         modules = with self.nixosModules; [
             audio
             base
-            grub 
+            boot.grub 
             hyprland
             networking
             nix

@@ -4,16 +4,16 @@
   flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self', ... }:
   {
       environment.systemPackages = with pkgs; [
-          hyprshutdown
-          self'.packages.caelestia-shell
+          brightnessctl
           dunst
           hyprland
-          rofi
           hyprshot 
-          quickshell
+          hyprshutdown
           kitty
+          quickshell
+          rofi
+          self'.packages.caelestia-shell
           wf-recorder
-          brightnessctl
       ]; 
     
       programs.hyprland = {
