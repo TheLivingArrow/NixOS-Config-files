@@ -1,11 +1,11 @@
-{ inputs, self, ... }:
+{ inputs, self', ... }:
 
 {
   flake.nixosModules.hyprland = { pkgs, ... }:
   {
       environment.systemPackages = with pkgs; [
           hyprshutdown
-          self.packages.caelestia-shell
+          self'.packages.caelestia-shell.with-cli
           dunst
           hyprland
           rofi
