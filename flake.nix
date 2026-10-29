@@ -24,9 +24,7 @@
     };
   };
 
- 
-
-  outputs = { self, flake-parts, ... }@inputs: 
+  outputs = { self, flake-parts, import-tree, ... }@inputs: 
         flake-parts.lib.mkFlake { inherit inputs; } 
-            (inputs.import-tree ./modules);
+            (import-tree ./modules);
 }
