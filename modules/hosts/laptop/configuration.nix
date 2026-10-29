@@ -15,6 +15,7 @@
             self.nixosModules.grub
             self.nixosModules.sddm
             self.nixosModules.hyprland
+	    self.nixsoModules.plasma6
             self.nixosModules.nix
             self.nixosModules.base
             self.nixosModules.zsh
