@@ -9,15 +9,16 @@
 
 {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
+        modules = with self.nixosModules;[
             ./_hardware-configuration.nix
-            self.nixosModules.nixos-base.gui
-            self.nixosModules.laptop-cfg
-	        self.nixosModules.plasma6
+            nixos-base.gui
+            laptop-cfg.cfg
+            laptop-cfg.apps
+	        plasma6
         ];
   };
 
-  flake.nixosModules.laptop-cfg = { pkgs, ...}: {
+  flake.nixosModules.laptop-cfg.cfg = { pkgs, ...}: {
 
     # nixos-base.gui = ...;
     networking.hostName = "nixos-laptop07"; # Define your hostname.
