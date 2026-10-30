@@ -55,6 +55,7 @@
     obsidian
     fastfetch
     feh
+    audacity
     flatpak
     gamemode 
     gamescope
@@ -81,7 +82,6 @@
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
-
   # List services that you want to enable:
   
   services.xserver.enable = true;
