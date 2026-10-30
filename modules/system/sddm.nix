@@ -1,7 +1,7 @@
 { inputs, ...}:
 
 {
-    flake.nixosModules.sddm = {...}:
+    flake.nixosModules.boot.sddm = {...}:
     {
       services.displayManager.sddm = {
           enable = true;

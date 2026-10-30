@@ -24,7 +24,6 @@
         tmux
         unzip
         vim
-        wget
         zip
       ];
     };

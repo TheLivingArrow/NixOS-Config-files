@@ -37,7 +37,7 @@
           {
               key = "\\";
               mode = ["n"];
-              action = ":lua vim.diagnostic.open_float()";
+              action = "<cmd>lua vim.diagnostic.open_float()<CR>";
               silent = true;
           }
         ];

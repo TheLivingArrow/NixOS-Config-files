@@ -11,19 +11,15 @@
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
         modules = [
             ./_hardware-configuration.nix
+            self.nixosModules.nixos-base.gui
             self.nixosModules.laptop-cfg
-            self.nixosModules.grub
-            self.nixosModules.sddm
-            self.nixosModules.hyprland
-	    self.nixosModules.plasma6
-            self.nixosModules.nix
-            self.nixosModules.base
-            self.nixosModules.zsh
+	        self.nixosModules.plasma6
         ];
   };
 
   flake.nixosModules.laptop-cfg = { pkgs, ...}: {
 
+    # nixos-base.gui = ...;
     networking.hostName = "nixos-laptop07"; # Define your hostname.
 
     time.timeZone = "Europe/Bucharest";
