@@ -51,6 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${SYSTEM}.default
+    self.packages.${SYSTEM}.default
     obsidian
     fastfetch
     feh
