@@ -5,7 +5,7 @@
 # Execute all before using:
 # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 # sudo nix-channel --update
-{ self, pkgs, inputs, SYSTEM, USER, ...}:
+{ pkgs, inputs, SYSTEM, USER, ...}:
 
 {
   imports = [ 
@@ -51,7 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${SYSTEM}.default
-    self.packages.${SYSTEM}.default
+    inputs.self.packages.${SYSTEM}.default
     obsidian
     fastfetch
     feh
