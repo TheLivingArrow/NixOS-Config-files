@@ -41,9 +41,9 @@
               silent = true;
           }
           {
-              key = "tab";
+              key = "<S-Tab>";
               mode = ["n"];
-              action = "<cmd>Neotree toggle<CR>";
+              action = ":Neotree toggle<CR>";
               silent = true;
           }
         ];
