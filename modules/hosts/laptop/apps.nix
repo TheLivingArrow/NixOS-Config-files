@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 
 {
-   flake.nixosModules.laptop-cfg.apps = {}:
+   flake.nixosModules.laptop-cfg-apps = {...}:
    let
         modules = with self.nixosModules.apps; [
             otter-launcher

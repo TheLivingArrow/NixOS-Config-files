@@ -12,14 +12,14 @@
         modules = with self.nixosModules;[
             ./_hardware-configuration.nix
             nixos-base-gui
-            laptop-cfg.cfg
-            laptop-cfg.apps
+            laptop-cfg
+            laptop-cfg-apps
 	        plasma6
         ];
   };
 
-  flake.nixosModules.laptop-cfg.cfg = { pkgs, ...}: {
-
+  flake.nixosModules.laptop-cfg = { pkgs, ...}: {
+    imports = [ self.nixosModules.laptop-cfg-apps ];
     # nixos-base.gui = ...;
     networking.hostName = "nixos-laptop07"; # Define your hostname.
 
