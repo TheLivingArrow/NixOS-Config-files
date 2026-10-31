@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 
 {
-    flake.nixosModules.nixos-base.gui = { config, lib, ...}:
+    flake.nixosModules.nixos-base-gui = { config, lib, ...}:
     let
         modules  = self.nixosModules;
         cfg = config.nixos-base.gui;

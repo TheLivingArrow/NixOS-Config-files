@@ -11,7 +11,7 @@
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
         modules = with self.nixosModules;[
             ./_hardware-configuration.nix
-            nixos-base.gui
+            nixos-base-gui
             laptop-cfg.cfg
             laptop-cfg.apps
 	        plasma6
