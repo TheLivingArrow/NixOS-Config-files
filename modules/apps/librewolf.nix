@@ -1,7 +1,7 @@
 { inputs, ... }:
 
 {
-    flake.nixosModules.apps.librewolf = { pkgs, ... }:
+    flake.nixosModules.librewolf = { pkgs, ... }:
     {
         environment.systemPackages = [ pkgs.librewolf ]; 
     };

@@ -1,7 +1,7 @@
 {pkgs, ...}:
 
 {
-    flake.nixosModules.apps.dolphin = { pkgs, ...}: {
+    flake.nixosModules.dolphin = { pkgs, ...}: {
         environment.systemPackages = with pkgs; [
             kdePackages.dolphin
             kdePackages.qtsvg

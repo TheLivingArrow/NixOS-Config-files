@@ -29,9 +29,9 @@
             };
         };
         config = lib.mkMerge ( with lib; [
-            (mkIf (cfg.dm == "sddm")                 modules.boot.sddm)
-            (mkIf (cfg.bootloader == "grub")         modules.boot.grub)
-            (mkIf (cfg.bootloader == "systemd-boot") modules.boot.systemd-boot) # Doesnt exist lol
+            (mkIf (cfg.dm == "sddm")                 modules.sddm)
+            (mkIf (cfg.bootloader == "grub")         modules.grub)
+            # (mkIf (cfg.bootloader == "systemd-boot") modules.systemd-boot) # Doesnt exist lol
             (mkIf (cfg.desktop == "hyprland")        modules.hyprland)
             (mkIf (cfg.desktop == "plasma6")         modules.plasma6)
         ]);

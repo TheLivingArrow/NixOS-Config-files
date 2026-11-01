@@ -2,7 +2,7 @@
 
 { 
     flake.nixosModules.plasma6 = {...}: {
-        imports = [ self.nixosModules.apps.dolphin ];
+        imports = [ self.nixosModules.dolphin ];
         services.desktopManager.plasma6.enable = true;
     };
 }

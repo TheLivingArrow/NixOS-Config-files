@@ -1,7 +1,7 @@
 { inputs, ...}:
 
 {
-    flake.nixosModules.boot.plymouth = { pkgs, ...}:
+    flake.nixosModules.plymouth = { pkgs, ...}:
     {
       environment.systemPackages = with pkgs; [
           plymouth

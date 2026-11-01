@@ -1,7 +1,7 @@
 { inputs, ... }:
 
 {
-    flake.nixosModules.apps.wireshark = { pkgs, ...}:
+    flake.nixosModules.wireshark = { pkgs, ...}:
     {
       environment.systemPackages = with pkgs; [
         wireshark

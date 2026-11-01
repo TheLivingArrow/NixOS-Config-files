@@ -3,7 +3,7 @@
 {
    flake.nixosModules.laptop-cfg-apps = {...}:
    let
-        modules = with self.nixosModules.apps; [
+        modules = with self.nixosModules; [
             otter-launcher
             wireshark
             tagstudio
