@@ -1,12 +1,12 @@
 { inputs, ...}:
 
 {
-    flake.nixosModules.sddm = {...}:
+    flake.nixosModules.sddm = { pkgs, ... }:
     {
       services.displayManager.sddm = {
           enable = true;
-          theme = "breeze";
-          extraPackages = [];
+          theme = "Elegant";
+          extraPackages = [ pkgs.elegant-sddm ];
           wayland.enable = true;
       };
     };
