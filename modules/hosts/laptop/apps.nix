@@ -6,7 +6,7 @@
         modules = with self.nixosModules; [
             otter-launcher
             wireshark
-            tagstudio
+            # tagstudio
             zen
             rustdesk    
         ];
