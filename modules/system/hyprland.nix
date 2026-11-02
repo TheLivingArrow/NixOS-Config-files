@@ -3,6 +3,10 @@
 {
   flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self', ... }:
   {
+      xdg.portal = {
+          enable = true;
+          extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+      };
       environment.systemPackages = with pkgs; [
           brightnessctl
           dunst
