@@ -12,15 +12,19 @@
     };
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     tagstudio = {
       url = "github:TagStudioDev/TagStudio";
       inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
+      inputs.flake-parts.follows = "flake-parts";
     };
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     zen-browser = {
         url = "github:youwen5/zen-browser-flake";

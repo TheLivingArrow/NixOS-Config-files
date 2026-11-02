@@ -9,7 +9,7 @@
     perSystem = { pkgs, ...}:
     {
         packages.nvf = (inputs.nvf.lib.neovimConfiguration {
-            modules = [ ./_nvf.conf.nix ];
+            modules = [ ./_config.nix ];
             inherit pkgs;
         }).neovim;
     };
