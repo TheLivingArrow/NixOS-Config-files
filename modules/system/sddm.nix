@@ -5,8 +5,8 @@
     {
       services.displayManager.sddm = {
           enable = true;
-          theme = "Elegant";
-          extraPackages = [ pkgs.elegant-sddm ];
+          theme = "breeze";
+          extraPackages = [ ];
           wayland.enable = true;
       };
     };
