@@ -22,6 +22,10 @@
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+        url = "github:youwen5/zen-browser-flake";
+        inputs.nixpkgs.follows = "nixpkgs"; # NOTE: if you experience a build failure with Zen, the first thing to check is to remove this line!
+    };
   };
 
   outputs = { self, flake-parts, import-tree, ... }@inputs: 
