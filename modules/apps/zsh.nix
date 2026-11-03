@@ -12,6 +12,15 @@
             enable = true;
             autosuggestions.enable = true;
             promptInit ="source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+            shellAliases = {
+                srb = "$NIXOS_CONFIG/rebuild.sh";
+                nvim = "nix run $NIXOS_CONFIG#nvf";
+                editconf = ''
+                    cd $NIXOS_CONFIG
+                    nvim flake.nix
+                    cd -
+                '';
+            };
           };
     };
 }

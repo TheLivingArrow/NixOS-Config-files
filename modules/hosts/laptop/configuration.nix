@@ -58,6 +58,9 @@
       wl-clicker
       fsel
     ];
+    environment.sessionVariables = {
+        NIXOS_CONFIG = "~/.nixconf";
+    };
 
     # List programs and their settings:
     programs.steam = {
