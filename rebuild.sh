@@ -19,18 +19,18 @@ fi
 
 # Check config validity
 cd $path
-if ! nixos-rebuild dry-run --flake .#$config; then
+if ! nh os build --dry; then
   exit
 fi
-# Update flake lock 
-if [[ $upgrade -eq 1 ]]; then
-    nix flake update --commit-lock-file    
-fi
+
 # Git
 git add .
 git commit 
-if [[ build -eq 1 ]]; then 
-    git push origin main
-    nixos-rebuild switch --sudo --flake .#$config
+if [[ $upgrade -eq 1 ]]; then
+    nix flake update --commit-lock-file    
+fi
+if [[ $build -eq 1 ]]; then 
+    git push
+    nh os switch
 fi 
 cd -
