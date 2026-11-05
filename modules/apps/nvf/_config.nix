@@ -40,6 +40,12 @@
               action = "<cmd>lua vim.diagnostic.open_float()<CR>";
               silent = true;
           }
+          {
+              key = "<S-Tab>";
+              mode = ["n"];
+              action = ":Neotree toggle<CR>";
+              silent = true;
+          }
         ];
         viAlias = false;
         vimAlias = true;

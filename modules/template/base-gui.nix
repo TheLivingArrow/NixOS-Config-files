@@ -13,6 +13,7 @@
             hyprland
             networking
             nix
+            nh
             nvf
             sddm
             zsh

@@ -18,7 +18,7 @@
   flake.nixosModules.laptop-cfg = { pkgs, ...}: {
     imports = [ self.nixosModules.laptop-cfg-apps ];
     # nixos-base.gui = ...;
-    networking.hostName = "nixos-laptop07"; # Define your hostname.
+    networking.hostName = "laptop"; # Define your hostname.
 
     time.timeZone = "Europe/Bucharest";
 
@@ -29,45 +29,16 @@
      extraGroups = [ "wheel" "input" ]; 
     };
     
-    # You can use https://search.nixos.org/ to find more packages (and options).
+    
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
 
-    environment.systemPackages = with pkgs; [
-      obsidian
-      fastfetch
-      feh
-      flatpak
-      gamemode 
-      gamescope
-      kitty
-      krita
-      lutris
-      mangohud
-      os-prober
-      python3
-      quickshell
-      steam
-      tmux
-      tree
-      vesktop
-      discord
-      vlc
-      wine-wayland
-      wl-clicker
-      fsel
-    ];
     environment.sessionVariables = {
-        NIXOS_CONFIG = "~/.nixconf";
+        FLAKE = "~/.nixconf";
     };
 
     # List programs and their settings:
-    programs.steam = {
-      enable = true;
-      extraCompatPackages = with pkgs; [ proton-ge-bin ];
-    };
-
     # List services that you want to enable:
     
     services.xserver.enable = true;

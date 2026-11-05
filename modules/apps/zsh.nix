@@ -13,10 +13,10 @@
             autosuggestions.enable = true;
             promptInit ="source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             shellAliases = {
-                srb = "$NIXOS_CONFIG/rebuild.sh";
-                nvim = "nix run $NIXOS_CONFIG#nvf";
+                srb = "$NH_FLAKE/rebuild.sh";
+                nvim = "nix run $NH_FLAKE#nvf";
                 editconf = ''
-                    cd $NIXOS_CONFIG
+                    cd $NH_FLAKE
                     nvim flake.nix
                     cd -
                 '';
