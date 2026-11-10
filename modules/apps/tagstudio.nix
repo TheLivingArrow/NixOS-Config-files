@@ -3,8 +3,6 @@
 {
     flake.nixosModules.tagstudio = moduleWithSystem ({ inputs', ... }:
     {
-      environment.systemPackages = [
-         inputs'.tagstudio.packages.tagstudio
-      ];   
+      environment.systemPackages = [ inputs'.tagstudio.packages.tagstudio ];   
     });
 }

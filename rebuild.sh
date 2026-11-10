@@ -19,7 +19,7 @@ fi
 
 # Check config validity
 cd $path
-if ! nh os build --dry; then
+if ! nixos-rebuild dry-build --keep-going --flake .#$config; then
   exit
 fi
 

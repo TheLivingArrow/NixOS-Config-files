@@ -21,6 +21,7 @@
              fastfetch
              feh
              flatpak
+             freecad
              gamemode 
              gamescope
              inkscape
