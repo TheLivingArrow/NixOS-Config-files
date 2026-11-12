@@ -56,7 +56,11 @@
             clang.enable  = true;
             json.enable   = true;
             lua.enable    = true;
-            nix.enable    = true;
+            nix = {
+                enable = true;
+                extraDiagnostics.enable = true;
+                lsp.servers = [ "nixd" ];
+            };
             python.enable = true;
             toml.enable   = true;
         };

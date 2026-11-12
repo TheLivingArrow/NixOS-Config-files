@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Nixos configuration flake by TheLivingArrow on Github";
 
   inputs = {
 

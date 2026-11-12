@@ -19,18 +19,20 @@ fi
 
 # Check config validity
 cd $path
-if ! nixos-rebuild dry-build --keep-going --flake .#$config; then
+if ! nix-instantiate --parse-only $NH_FLAKE/*.nix; then
   exit
 fi
 
 # Git
 git add .
 git commit 
-if [[ $upgrade -eq 1 ]]; then
-    nix flake update --commit-lock-file    
-fi
+
 if [[ $build -eq 1 ]]; then 
-    git push
-    nh os switch
+    git push  
+    if [[ $upgrade -eq 1 ]]; then
+        nh os switch --upgrade
+    else
+        nh os switch
+    fi
 fi 
 cd -
