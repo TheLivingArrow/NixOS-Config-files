@@ -230,7 +230,7 @@
         ],
         "home-manager": "home-manager",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "systems": "systems"
       },
@@ -279,6 +279,7 @@
         "nvf": "nvf",
         "otter-launcher": "otter-launcher",
         "tagstudio": "tagstudio",
+        "wrappers": "wrappers",
         "zen-browser": "zen-browser"
       }
     },
@@ -318,7 +319,7 @@
           "flake-parts"
         ],
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "systems": "systems_2"
       },
@@ -333,6 +334,26 @@
       "original": {
         "owner": "TagStudioDev",
         "repo": "TagStudio",
+        "type": "github"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794397181,
+        "narHash": "sha256-wHdMM1K4TYrGKjzvb67RfBr57Q4w8LwxlxPd2nEWGuM=",
+        "owner": "nix-community",
+        "repo": "nix-wrapper-modules",
+        "rev": "c36fa7feb82dca492342f61da4f7bb10a48f0764",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-wrapper-modules",
         "type": "github"
       }
     },
