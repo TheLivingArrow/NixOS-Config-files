@@ -20,13 +20,13 @@
           };
     });
 
-    perSystem = { pkgs, ...}:
+    perSystem = { pkgs, lib, self', ...}:
     {
           packages.zsh = inputs.wrappers.wrappers.zsh.wrap {
               inherit pkgs;
               zshAliases = {
                   srb = "$NH_FLAKE/rebuild.sh";
-                  nvim = "nix run $NH_FLAKE#nvf";
+                  nvim = lib.getExe self'.packages.nvf;
                   editconf = ''
                       cd $NH_FLAKE
                       nvim flake.nix
@@ -36,6 +36,7 @@
 
               zshenv.content = ''
                   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+                  export EDITOR=nvim
               '';
 
               zshrc.content = ''

@@ -17,6 +17,7 @@
    {
         imports = modules;
         environment.systemPackages = with pkgs; [
+             bat
              element-desktop
              fastfetch
              feh

@@ -11,6 +11,7 @@
           brightnessctl
           dunst
           hyprland
+          awww
           hyprshot 
           hyprshutdown
           kitty

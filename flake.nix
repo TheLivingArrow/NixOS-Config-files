@@ -8,6 +8,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:denful/import-tree";
+    devshell.url = "github:numtide/devshell";
     wrappers = {
         url = "github:nix-community/nix-wrapper-modules"; 
         inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -24,7 +25,8 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    tagstudio = {
+
+tagstudio = {
       url = "github:TagStudioDev/TagStudio";
       inputs.nixpkgs.follows = "nixpkgs-unstable"; # Use the same package set as your flake.
       inputs.flake-parts.follows = "flake-parts";
