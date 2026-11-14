@@ -9,15 +9,13 @@
         
           programs.zsh = {
                  enable = true;
+                 package = self'.packages.zsh;
                  autosuggestions.enable = true;
                  syntaxHighlighting.enable = true;
+                 promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
                  ohMyZsh = {
                      enable = true;
-                     plugins = [
-                       "git"
-                       "powerlevel10k"
-                     ];
-                     theme = "powerlevel10k";
+                     plugins = [];
                  };
           };
     });
@@ -37,14 +35,20 @@
                   '';
               };
 
-              zshenv.content = ''
-                  source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-              '';
+              zshenv.content = '''';
 
               zshrc.content = ''
+                  if [[ -r ''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh ]]; then
+                      source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+                  fi
+                  source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+                  export ZSH="$HOME/.oh-my-zsh"
                   export EDITOR=nvim
+                  source $ZSH/oh-my-zsh.sh
                   COMPLETION_WAITING_DOTS="true"
+                  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
               '';
+                  #source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
           };
     };
 }
