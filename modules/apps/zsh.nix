@@ -15,7 +15,9 @@
                      enable = true;
                      plugins = [
                        "git"
+                       "powerlevel10k"
                      ];
+                     theme = "powerlevel10k";
                  };
           };
     });
@@ -25,6 +27,7 @@
           packages.zsh = inputs.wrappers.wrappers.zsh.wrap {
               inherit pkgs;
               zshAliases = {
+                  cat = lib.getExe pkgs.bat;
                   srb = "$NH_FLAKE/rebuild.sh";
                   nvim = lib.getExe self'.packages.nvf;
                   editconf = ''
@@ -36,10 +39,10 @@
 
               zshenv.content = ''
                   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-                  export EDITOR=nvim
               '';
 
               zshrc.content = ''
+                  export EDITOR=nvim
                   COMPLETION_WAITING_DOTS="true"
               '';
           };

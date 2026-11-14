@@ -17,7 +17,7 @@
           kitty
           quickshell
           rofi
-          self'.packages.caelestia-shell
+          #self'.packages.caelestia-shell
           wf-recorder
       ]; 
     
@@ -28,6 +28,6 @@
   });
 
   perSystem = { inputs', ... }: {
-    packages.caelestia-shell = inputs'.caelestia-shell.packages.with-cli;
+    #packages.caelestia-shell = inputs'.caelestia-shell.packages.with-cli;
   };
 }

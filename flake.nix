@@ -19,14 +19,14 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
+    /*caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
-    };
+    };*/
 
-tagstudio = {
+    tagstudio = {
       url = "github:TagStudioDev/TagStudio";
       inputs.nixpkgs.follows = "nixpkgs-unstable"; # Use the same package set as your flake.
       inputs.flake-parts.follows = "flake-parts";
