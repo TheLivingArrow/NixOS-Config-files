@@ -6,12 +6,21 @@
             zsh
             zsh-powerlevel10k
           ];
-        
+
+          nixpkgs.overlays = [
+            (final: prev: {
+                zsh = self'.packages.zsh;
+            })
+          ];
+
+          users.defaultUserShell = pkgs.zsh;
+
           programs.zsh = {
                  enable = true;
-                 package = self'.packages.zsh;
                  autosuggestions.enable = true;
                  syntaxHighlighting.enable = true;
+                 enableCompletion = true;
+                 enableBashCompletion = true;
                  promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
                  ohMyZsh = {
                      enable = true;
