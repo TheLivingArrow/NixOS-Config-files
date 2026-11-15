@@ -9,13 +9,11 @@
         imports = with modules; [
             audio
             base
-            grub
             hyprland
             networking
             nix
             nh
             nvf
-            sddm
             zsh
        ];
     };

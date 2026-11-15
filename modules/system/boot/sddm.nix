@@ -5,8 +5,11 @@
     {
       services.displayManager.sddm = {
           enable = true;
-          theme = "breeze";
-          extraPackages = [ ];
+          theme = "sddm-astronaut-theme"; 
+          extraPackages = with pkgs; [ 
+              sddm-astronaut 
+              kdePackages.qtmultimedia
+          ];
           wayland.enable = true;
       };
     };
