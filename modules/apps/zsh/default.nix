@@ -34,7 +34,7 @@
               inherit pkgs;
               zshAliases = {
                   cat = lib.getExe pkgs.bat;
-                  srb = "$NH_FLAKE/rebuild.sh";
+                  srb = "sh -c $NH_FLAKE/rebuild.sh";
                   nvim = lib.getExe self'.packages.nvf;
                   editconf = ''
                       cd $NH_FLAKE
