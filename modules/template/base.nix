@@ -11,7 +11,6 @@
       environment.systemPackages = with pkgs; [
         bash
         btop
-        efibootmgr
         file
         fzf
         gcc
