@@ -13,6 +13,7 @@
         theme = {
             enable = true;
             name = "gruvbox";
+            transparent = true;
             style = "dark";/*
             base16-colors = {
                 base00 = "181818";

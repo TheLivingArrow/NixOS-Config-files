@@ -12,6 +12,7 @@
             # tagstudio
             zen
             rustdesk    
+            zsh
         ];
    in
    {
@@ -26,7 +27,6 @@
              gamemode 
              gamescope
              inkscape
-             kitty
              lutris
              mangohud
              obsidian
@@ -40,7 +40,6 @@
              vlc
              wine-wayland
              wl-clicker
-             fsel
         ];
 
         programs = {

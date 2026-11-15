@@ -18,15 +18,15 @@
   flake.nixosModules.laptop-cfg = moduleWithSystem ({ pkgs, self', ...}: {
     imports = [ self.nixosModules.laptop-cfg-apps ];
     # nixos-base.gui = ...;
-    networking.hostName = "laptop"; # Define your hostname.
+    networking.hostName = "laptop"; 
 
     time.timeZone = "Europe/Bucharest";
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.defaultUserShell = self'.packages.zsh;
     users.users.daniel-nix = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "input" ]; 
+        initialPassword = "user1";
+        isNormalUser = true;
+        extraGroups = [ "wheel" "input" ]; 
     };
     
     

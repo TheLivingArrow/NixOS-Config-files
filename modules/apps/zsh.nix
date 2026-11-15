@@ -2,15 +2,14 @@
 
 {
     flake.nixosModules.zsh = moduleWithSystem ({ pkgs, self', ...}: {
-          environment.systemPackages = with pkgs; [
-            zsh
-            zsh-powerlevel10k
-          ];
-
           nixpkgs.overlays = [
             (final: prev: {
                 zsh = self'.packages.zsh;
             })
+          ];
+
+          environment.systemPackages = with pkgs; [
+            zsh-powerlevel10k
           ];
 
           users.defaultUserShell = pkgs.zsh;

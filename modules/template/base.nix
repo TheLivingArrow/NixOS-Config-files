@@ -9,18 +9,16 @@
     
       # Essential programs
       environment.systemPackages = with pkgs; [
+        bash
         btop
-        cmake
         efibootmgr
         file
         fzf
         gcc
         git
         gnumake
-        gzip
-        icu
-        python3
         gnutar
+        gzip
         tmux
         unzip
         vim

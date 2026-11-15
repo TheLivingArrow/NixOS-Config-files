@@ -1,8 +1,9 @@
 { inputs, moduleWithSystem, ... }:
 
 {
-  flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self', ... }:
+  flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self, ... }:
   {
+      # imports = with self.nixosModules; [ otter-launcher ];
       xdg.portal = {
           enable = true;
           extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
@@ -17,7 +18,6 @@
           kitty
           quickshell
           rofi
-          #self'.packages.caelestia-shell
           wf-recorder
       ]; 
     
@@ -27,7 +27,5 @@
       };
   });
 
-  perSystem = { inputs', ... }: {
-    #packages.caelestia-shell = inputs'.caelestia-shell.packages.with-cli;
-  };
+  perSystem = { inputs', ... }: {};
 }
