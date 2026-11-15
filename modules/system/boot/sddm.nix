@@ -3,7 +3,7 @@
 {
     flake.nixosModules.sddm = { pkgs, ... }:
     {
-      environment.systemPackages = [ pkgs.sddm-astronaut-theme ];
+      environment.systemPackages = [ pkgs.sddm-astronaut ];
       services.displayManager.sddm = {
           enable = true;
           theme = "sddm-astronaut-theme"; 
