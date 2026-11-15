@@ -20,6 +20,7 @@
         environment.systemPackages = with pkgs; [
              bat
              element-desktop
+             kdePackages.ark
              fastfetch
              feh
              flatpak

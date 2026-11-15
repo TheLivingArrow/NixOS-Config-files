@@ -12,6 +12,7 @@
           brightnessctl
           dunst
           hyprland
+          hyprcursor
           awww
           hyprshot 
           hyprshutdown

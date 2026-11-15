@@ -1,12 +1,9 @@
 { self, inputs, ... }:
 
 {
-    flake.nixosModules.nixos-base-gui = { config, lib, ...}:
-    let
-        modules  = self.nixosModules;
-    in
+    flake.nixosModules.nixos-base-gui = { ... }:
     { 
-        imports = with modules; [
+        imports = with self.nixosModules; [
             audio
             base
             hyprland
