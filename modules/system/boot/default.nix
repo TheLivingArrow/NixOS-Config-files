@@ -8,7 +8,6 @@
         ];
         imports = with self.nixosModules; [
             grub
-            plymouth
             sddm
         ];
     };

@@ -10,7 +10,7 @@
       nix.optimise.dates = ["24hr"]; 
       system.autoUpgrade = {
             enable = true;
-            flake = "../../..";
+            flake = "github:TheLivingArrow/Nixos-configuration";
             flags = [
             "--print-build-logs"
             "--commit-lock-file"  # If you want to automatically commit the updated flake.lock
