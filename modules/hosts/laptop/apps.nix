@@ -1,10 +1,10 @@
 
 # You can use https://search.nixos.org/ to find more packages (and options).
 
-{ self, inputs, ... }:
+{ self, inputs, moduleWithSystem, ... }:
 
 {
-   flake.nixosModules.laptop-cfg-apps = { pkgs, upkgs, ...}:
+   flake.nixosModules.laptop-cfg-apps = moduleWithSystem ({ pkgs, upkgs, ...}:
    let
         modules = with self.nixosModules; [
             otter-launcher
@@ -50,6 +50,6 @@
             };
             nh.flake = "$HOME/.nixconf";
         };
-   }; 
+   }); 
 }
 
