@@ -4,7 +4,7 @@
 { self, inputs, ... }:
 
 {
-   flake.nixosModules.laptop-cfg-apps = { pkgs, ...}:
+   flake.nixosModules.laptop-cfg-apps = { pkgs, upkgs, ...}:
    let
         modules = with self.nixosModules; [
             otter-launcher
@@ -30,7 +30,6 @@
              inkscape
              lutris
              mangohud
-             obsidian
              os-prober
              python3
              quickshell
@@ -41,7 +40,8 @@
              vlc
              wine-wayland
              wl-clicker
-        ];
+        ] ++
+        [ upkgs.obsidian ];
 
         programs = {
             steam = {

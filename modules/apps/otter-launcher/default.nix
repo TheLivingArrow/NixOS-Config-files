@@ -1,11 +1,25 @@
 { inputs, moduleWithSystem, ... }:
 
 {
-    flake.nixosModules.otter-launcher = moduleWithSystem ({ inputs', pkgs, ...}:
+    flake.nixosModules.otter-launcher = moduleWithSystem ({ self', ... }:
     {
         environment.systemPackages = [
-            inputs'.otter-launcher.packages.default
-            pkgs.fsel
+            self'.otter-launcher
         ];
     });
+
+    perSystem = { inputs', pkgs, ... }: 
+    {
+            packages.otter-launcher = inputs.wrappers.lib.wrapPackage ({ ... }:
+            {
+                inherit pkgs;
+                package = inputs'.otter-launcher.packages.default;
+                runtimePkgs = with pkgs; [
+                    fsel
+                ];
+                flags = {
+                    "-c" = ./config.toml;
+                };
+            });
+    };
 }
