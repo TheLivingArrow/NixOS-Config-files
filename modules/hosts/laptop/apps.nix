@@ -7,7 +7,6 @@
    flake.nixosModules.laptop-cfg-apps = moduleWithSystem ({ pkgs, upkgs, ...}:
    let
         modules = with self.nixosModules; [
-            otter-launcher
             wireshark
             # tagstudio
             zen
@@ -40,9 +39,7 @@
              vlc
              wine-wayland
              wl-clicker
-        ] ++
-        [ upkgs.obsidian ];
-
+        ];
         programs = {
             steam = {
                 enable = true;

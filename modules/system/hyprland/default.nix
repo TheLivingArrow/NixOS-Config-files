@@ -3,7 +3,7 @@
 {
   flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self, ... }:
   {
-      # imports = with self.nixosModules; [ otter-launcher ];
+      imports = with self.nixosModules; [ otter-launcher ];
       xdg.portal = {
           enable = true;
           extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
