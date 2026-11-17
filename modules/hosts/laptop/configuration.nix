@@ -19,6 +19,7 @@
             nix
             nvf
             zsh
+            otter-launcher
         ];
   };
 
