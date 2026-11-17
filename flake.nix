@@ -10,7 +10,7 @@
     import-tree.url = "github:denful/import-tree";
     wrappers = {
         url = "github:nix-community/nix-wrapper-modules"; 
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Apps
