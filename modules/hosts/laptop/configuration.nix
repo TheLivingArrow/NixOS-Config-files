@@ -5,7 +5,18 @@
 { inputs, self, moduleWithSystem, ... }:
 
 {
-  flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.laptop = 
+  let 
+    sys = with self.nixosModules; [
+        boot
+        base 
+        nix
+        user0
+        networking
+        locale
+    ];    
+  in inputs.nixpkgs.lib.nixosSystem 
+  {
         modules = with self.nixosModules; [
             ./_hardware-configuration.nix
             boot
@@ -14,11 +25,10 @@
             base
             hyprland
             networking
+            user0
+            locale
             nh
             nix
-            nvf
-            zsh
-            otter-launcher
         ];
   };
 
@@ -29,9 +39,14 @@
             zen
             rustdesk    
             zsh
+            dolphin
+            otter-launcher
+            nvf
+            zsh
         ];
         packages = with pkgs; [
              bat
+             lsd
              element-desktop
              kdePackages.ark
              fastfetch
@@ -65,28 +80,18 @@
 
     networking.hostName = "laptop"; 
 
-    time.timeZone = "Europe/Bucharest";
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.daniel-nix = {
-        initialPassword = "user1";
-        isNormalUser = true;
-        extraGroups = [ "wheel" "input" ]; 
-    };
-    
     
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
     programs = {
-            steam = {
-                enable = true;
-                extraCompatPackages = with pkgs; [ proton-ge-bin ];
-            };
-            nh.flake = "$HOME/.nixconf";
+        steam = {
+            enable = true;
+            extraCompatPackages = with pkgs; [ proton-ge-bin ];
         };
+        nh.flake = "$HOME/.nixconf";
+    };
 
-    environment.sessionVariables = {};
     environment.systemPackages = packages ++ unfreePackages ++ unstablePackages;
     # List programs and their settings:
     # List services that you want to enable:
