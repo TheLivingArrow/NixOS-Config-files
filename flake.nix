@@ -20,12 +20,12 @@
     };
     tagstudio = {
       url = "github:TagStudioDev/TagStudio";
-      inputs.nixpkgs.follows = "nixpkgs-unstable"; # Use the same package set as your flake.
+      inputs.nixpkgs.follows = "nixpkgs"; # Use the same package set as your flake.
       inputs.flake-parts.follows = "flake-parts";
     };
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
     zen-browser = {
