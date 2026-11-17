@@ -6,11 +6,10 @@
 
 {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
-        modules = with self.nixosModules;[
+        modules = with self.nixosModules; [
             ./_hardware-configuration.nix
             boot
             laptop-cfg
-            laptop-cfg-apps
             audio
             base
             hyprland
@@ -23,11 +22,47 @@
         ];
   };
 
-  flake.nixosModules.laptop-cfg = moduleWithSystem ({  pkgs, ...}: {
-    imports = with self.nixosModules; [ 
-        laptop-cfg-apps 
-    ];
-    # nixos-base.gui = ...;
+  flake.nixosModules.laptop-cfg = moduleWithSystem ({ pkgs, unfreePkgs, upkgs, ... }: 
+  let 
+        modules = with self.nixosModules; [
+            wireshark
+            zen
+            rustdesk    
+            zsh
+        ];
+        packages = with pkgs; [
+             bat
+             element-desktop
+             kdePackages.ark
+             fastfetch
+             feh
+             flatpak
+             freecad
+             gamemode 
+             gamescope
+             inkscape
+             lutris
+             mangohud
+             os-prober
+             python3
+             quickshell
+             tmux
+             tree
+             vesktop
+             vlc
+             wine-wayland
+             wl-clicker
+        ];
+        unfreePackages = with unfreePkgs; [
+              steam
+        ];
+        unstablePackages = with upkgs; [
+            obsidian
+        ];
+  in
+  {
+    imports = modules;
+
     networking.hostName = "laptop"; 
 
     time.timeZone = "Europe/Bucharest";
@@ -43,9 +78,16 @@
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
+    programs = {
+            steam = {
+                enable = true;
+                extraCompatPackages = with pkgs; [ proton-ge-bin ];
+            };
+            nh.flake = "$HOME/.nixconf";
+        };
 
     environment.sessionVariables = {};
-
+    environment.systemPackages = packages ++ unfreePackages ++ unstablePackages;
     # List programs and their settings:
     # List services that you want to enable:
     
