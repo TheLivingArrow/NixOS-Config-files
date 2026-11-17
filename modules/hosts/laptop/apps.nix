@@ -4,11 +4,10 @@
 { self, inputs, moduleWithSystem, ... }:
 
 {
-   flake.nixosModules.laptop-cfg-apps = moduleWithSystem ({ pkgs, upkgs, ...}:
+   flake.nixosModules.laptop-cfg-apps = moduleWithSystem ({ pkgs, unfreePkgs, ...}:
    let
         modules = with self.nixosModules; [
             wireshark
-            # tagstudio
             zen
             rustdesk    
             zsh
@@ -32,15 +31,17 @@
              os-prober
              python3
              quickshell
-             steam
              tmux
              tree
              vesktop
              vlc
              wine-wayland
              wl-clicker
+        ]
+        ++
+        [
+            unfreePkgs.steam
         ];
-        nixpkgs.config = { allowUnfree = true; };
         programs = {
             steam = {
                 enable = true;
