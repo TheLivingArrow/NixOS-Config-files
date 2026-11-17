@@ -4,7 +4,9 @@
     perSystem = { system, ... }: 
     {
         _module.args = {
-            upkgs = import inputs.nixpkgs-unstable {inherit system;};
+            upkgs = import inputs.nixpkgs-unstable {
+                inherit system;
+            };
         };
     };
 }

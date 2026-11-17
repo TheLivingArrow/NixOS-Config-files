@@ -11,6 +11,7 @@
             boot
             laptop-cfg
             laptop-cfg-apps
+            nix
             nixos-base-gui
         ];
   };
