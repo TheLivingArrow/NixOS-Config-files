@@ -22,7 +22,7 @@
         ];
   };
 
-  flake.nixosModules.laptop-cfg = moduleWithSystem ({ upkgs, pkgs, ...}: {
+  flake.nixosModules.laptop-cfg = moduleWithSystem ({  pkgs, ...}: {
     imports = with self.nixosModules; [ 
         laptop-cfg-apps 
     ];
@@ -30,7 +30,7 @@
     networking.hostName = "laptop"; 
 
     time.timeZone = "Europe/Bucharest";
-    environment.systemPackages = with upkgs; [ obsidian ];
+     # environment.systemPackages = with upkgs; [ obsidian ];
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.daniel-nix = {
