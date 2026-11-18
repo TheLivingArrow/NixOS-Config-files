@@ -1,8 +1,26 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
-    imports = [./inputs.nix ];
-    systems = [ "x86_64-linux" ];
+    imports = [
+        ./inputs.nix 
+        inputs.flake-file.flakeModules.dendritic
+    ];
+
+    flake-file = {
+        description = "Nixos configuration flake by TheLivingArrow on Github";
+        inputs = {
+            nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+            nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+            flake-parts.url = "github:hercules-ci/flake-parts";
+            import-tree.url = "github:denful/import-tree";
+            flake-file.url = "github:denful/flake-file";
+            wrappers = {
+                url = "github:nix-community/nix-wrapper-modules"; 
+                inputs.nixpkgs.follows = "nixpkgs";
+            };
+        };
+    };
+
     perSystem = { system, ... }: 
     {
         _module.args = {
