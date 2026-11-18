@@ -21,10 +21,6 @@
                  enableCompletion = true;
                  enableBashCompletion = true;
                  promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-                 ohMyZsh = {
-                     enable = true;
-                     plugins = [];
-                 };
           };
     });
 
@@ -33,6 +29,7 @@
           packages.zsh = inputs.wrappers.wrappers.zsh.wrap {
               inherit pkgs;
               zshAliases = {
+                  ls = lib.getExe pkgs.lsd;
                   cat = lib.getExe pkgs.bat;
                   srb = "sh -c $NH_FLAKE/rebuild.sh";
                   nvim = lib.getExe self'.packages.nvf;
@@ -43,8 +40,6 @@
                   '';
               };
 
-              zshenv.content = '''';
-
               zshrc.content = ''
                   if [[ -r ''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh ]]; then
                       source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -52,7 +47,6 @@
                   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
                   export ZSH="$HOME/.oh-my-zsh"
                   export EDITOR=nvim
-                  source $ZSH/oh-my-zsh.sh
                   COMPLETION_WAITING_DOTS="true"
                   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
               '';
