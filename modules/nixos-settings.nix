@@ -1,6 +1,8 @@
 { inputs, ... }:
 
 {
+    imports = [./inputs.nix ];
+    systems = [ "x86_64-linux" ];
     perSystem = { system, ... }: 
     {
         _module.args = {
