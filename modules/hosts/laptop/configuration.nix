@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ inputs, self, moduleWithSystem, ... }:
+{ inputs, self, ... }:
 
 {
   flake.nixosConfigurations.laptop = 
@@ -27,7 +27,7 @@
         ]);
   };
 
-  flake.nixosModules.laptop-cfg = { pkgs, upkgs, ... }: 
+  flake.nixosModules.laptop-cfg = { pkgs, upkgs, config, ... }: 
   let 
         modules = with self.nixosModules; [
             wireshark
