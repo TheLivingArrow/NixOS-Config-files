@@ -26,6 +26,6 @@
     in
     {
         nixpkgs.config.allowUnfree = true;
-        _module.args.upkgs = lib.mkForce (import inputs.nixpkgs-unstable { inherit system; allowUnfree = true; }).pkgs;
+        _module.args.upkgs = lib.mkDefault (import inputs.nixpkgs-unstable { inherit system; allowUnfree = true; }).pkgs;
     };
 }
