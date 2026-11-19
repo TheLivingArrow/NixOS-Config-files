@@ -20,12 +20,12 @@
         };
     };
 
-    flake.nixosModules.nix = { pkgs, ... }:
+    flake.nixosModules.nix = { lib, pkgs, ... }:
     let 
         inherit (pkgs.stdenv.hostPlatform) system;
     in
     {
         nixpkgs.config.allowUnfree = true;
-        _module.args.upkgs = (import inputs.nixpkgs-unstable { inherit system; allowUnfree = true; }).pkgs;
+        _module.args.upkgs = lib.mkForce (import inputs.nixpkgs-unstable { inherit system; allowUnfree = true; }).pkgs;
     };
 }
