@@ -31,11 +31,11 @@
               zshAliases = {
                   ls = lib.getExe pkgs.lsd;
                   cat = lib.getExe pkgs.bat;
-                  srb = "sh -c $NH_FLAKE/rebuild.sh";
+                  srb = "$NH_FLAKE/rebuild.sh";
                   nvim = lib.getExe self'.packages.nvf;
                   editconf = ''
                       cd $NH_FLAKE
-                      nvim flake.nix
+                      nvim README.md
                       cd -
                   '';
               };

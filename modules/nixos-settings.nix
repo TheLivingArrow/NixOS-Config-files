@@ -20,7 +20,7 @@
         };
     };
 
-    flake.nixosModules.nixs = { lib, pkgs, config, ... }:
+    flake.nixosModules.extraPkgs = { pkgs, config, ... }:
     let 
         inherit (pkgs.stdenv.hostPlatform) system;
     in

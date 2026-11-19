@@ -11,7 +11,7 @@
         boot
         base 
         nix
-        nixs
+        extraPkgs
         user0
         networking
         audio
@@ -57,7 +57,6 @@
              python3
              quickshell
              tmux
-             tree
              vlc
              wine-wayland
              wl-clicker
