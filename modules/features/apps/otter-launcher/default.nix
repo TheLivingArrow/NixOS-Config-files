@@ -1,6 +1,12 @@
 { inputs, moduleWithSystem, ... }:
 
 {
+    flake-file.inputs.otter-launcher = {
+        url = "github:kuokuo123/otter-launcher";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.flake-parts.follows = "flake-parts";
+    };
+    
     flake.nixosModules.otter-launcher = moduleWithSystem ({ self', ... }:
     {
         environment.systemPackages = [

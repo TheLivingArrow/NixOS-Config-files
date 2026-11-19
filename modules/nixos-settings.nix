@@ -1,8 +1,7 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 
 {
     imports = [
-        ./inputs.nix 
         inputs.flake-file.flakeModules.dendritic
     ];
 
@@ -21,13 +20,13 @@
         };
     };
 
-    perSystem = { system, ... }: 
+    flake.nixosModules.nix = { system, ... }:
     {
-        _module.args = {
+        config._module.args = {
             upkgs = import inputs.nixpkgs-unstable { inherit system; };
             unfreePkgs = import inputs.nixpkgs { 
                 inherit system; 
-                config.allowUnfree = true;
+                allowUnfree = true;
             };
         };
     };

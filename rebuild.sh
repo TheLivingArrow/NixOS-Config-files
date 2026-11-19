@@ -1,6 +1,6 @@
 #!/bin/sh
 config=laptop
-path=~/.nixconf/
+path=$NH_FLAKE
 
 #Arguments 
 #build = false means that it will only commit and push changes, usefull when developing
@@ -19,9 +19,8 @@ fi
 
 # Check config validity
 cd $path
-if ! nix-instantiate --parse-only $NH_FLAKE/*.nix; then
-  exit
-fi
+
+nix run .#write-flake
 
 # Git
 git add .
