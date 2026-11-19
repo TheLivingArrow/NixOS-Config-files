@@ -11,6 +11,7 @@
         boot
         base 
         nix
+        nixs
         user0
         networking
         audio
