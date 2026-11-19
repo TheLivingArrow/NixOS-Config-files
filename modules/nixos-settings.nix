@@ -26,6 +26,6 @@
     in
     {
         nixpkgs.config.allowUnfree = true;
-        _module.args.upkgs = (import inputs.nixpkgs-unstable { inherit system; allowUnfree = true; });
+        _module.args.upkgs = (import inputs.nixpkgs-unstable { inherit system; config.allowUnfree = true; });
     };
 }
