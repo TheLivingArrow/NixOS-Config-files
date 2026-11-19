@@ -27,7 +27,7 @@
         ]);
   };
 
-  flake.nixosModules.laptop-cfg = moduleWithSystem ({ pkgs, upkgs, ... }: 
+  flake.nixosModules.laptop-cfg = { pkgs, upkgs, ... }: 
   let 
         modules = with self.nixosModules; [
             wireshark
@@ -93,7 +93,7 @@
     services.flatpak.enable = true;
 
     system.stateVersion = "26.05"; 
-  });
+  };
 }
 
 
