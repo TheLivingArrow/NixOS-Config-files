@@ -13,26 +13,21 @@
         nix
         user0
         networking
+        audio
         locale
     ];    
   in inputs.nixpkgs.lib.nixosSystem 
   {
-        modules = with self.nixosModules; [
+        modules = sys ++ (with self.nixosModules; [
             ./_hardware-configuration.nix
-            boot
             laptop-cfg
-            audio
-            base
             hyprland
-            networking
-            user0
-            locale
             nh
             nix
-        ];
+        ]);
   };
 
-  flake.nixosModules.laptop-cfg = moduleWithSystem ({ pkgs, unfreePkgs, upkgs, ... }: 
+  flake.nixosModules.laptop-cfg = moduleWithSystem ({ pkgs, upkgs, ... }: 
   let 
         modules = with self.nixosModules; [
             wireshark
@@ -47,7 +42,6 @@
         packages = with pkgs; [
              bat
              lsd
-             element-desktop
              kdePackages.ark
              fastfetch
              feh
@@ -63,16 +57,15 @@
              quickshell
              tmux
              tree
-             vesktop
              vlc
              wine-wayland
              wl-clicker
         ];
-        unfreePackages = with unfreePkgs; [
-              steam
-        ];
         unstablePackages = with upkgs; [
             obsidian
+            steam
+            vesktop
+            element-desktop
         ];
   in
   {
@@ -92,7 +85,7 @@
         nh.flake = "$HOME/.nixconf";
     };
 
-    environment.systemPackages = packages ++ unfreePackages ++ unstablePackages;
+    environment.systemPackages = packages ++ unstablePackages;
     # List programs and their settings:
     # List services that you want to enable:
     
