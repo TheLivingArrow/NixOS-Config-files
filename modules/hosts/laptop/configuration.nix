@@ -72,7 +72,6 @@
     imports = modules;
 
     networking.hostName = "laptop"; 
-
     
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
@@ -86,8 +85,6 @@
     };
 
     environment.systemPackages = packages ++ unstablePackages;
-    # List programs and their settings:
-    # List services that you want to enable:
     
     services.xserver.enable = true;
     services.flatpak.enable = true;

@@ -45,12 +45,10 @@
                       source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
                   fi
                   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-                  export ZSH="$HOME/.oh-my-zsh"
                   export EDITOR=nvim
                   COMPLETION_WAITING_DOTS="true"
                   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
               '';
-                  #source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
           };
     };
 }
