@@ -1,32 +1,35 @@
-{ inputs, moduleWithSystem, ... }:
+{ self, inputs,  ... }:
 
 {
-  flake.nixosModules.hyprland = moduleWithSystem ({ pkgs, self, ... }:
-  {
-#      imports = with self.nixosModules; [ otter-launcher ];
-      xdg.portal = {
-          enable = true;
-          extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-      };
-      environment.systemPackages = with pkgs; [
-          brightnessctl
-          dunst
-          hyprland
-          hyprcursor
-          awww
-          hyprshot 
-          hyprshutdown
-          kitty
-          quickshell
-          rofi
-          wf-recorder
-      ]; 
-    
-      programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-      };
-  });
+    flake.nixosModules.hyprland = { pkgs, ... }:
+    {
+        imports = with self.nixosModules; [ 
+            otter-launcher 
+            cursors
+        ];
 
-  perSystem = { inputs', ... }: {};
+        xdg.portal = {
+            enable = true;
+            extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+        };
+
+        environment.systemPackages = with pkgs; [
+            brightnessctl
+            dunst
+            hyprland
+            hyprcursor
+            awww
+            hyprshot 
+            hyprshutdown
+            kitty
+            quickshell
+            rofi
+            wf-recorder
+        ]; 
+      
+        programs.hyprland = {
+            enable = true;
+            xwayland.enable = true;
+        };
+    };
 }
